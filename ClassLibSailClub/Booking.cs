@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace EksamensprojektFørsteSemester_ClassLibary
+
 {
     internal class Booking // propperties
     {
@@ -13,7 +13,7 @@ namespace EksamensprojektFørsteSemester_ClassLibary
         public Medlem medlem { get; set; }
         public Boat boat { get; set; }
 
-        public Booking(string datoStart, string datoSlut, Medlem medlem, Boat boat)//constructor 
+        public Booking(string datoStart, string datoSlut, Medlem medlem, Boat boat) //constructor 
 
         {
             this.datoStart = datoStart;
