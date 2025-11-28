@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace ClassLibSailClub
 {
-    public class BoatReg
+    public class BoatReg : Maintenance
+
     {
         List<Boat> Boats { get; set; } = new List<Boat>
         {
@@ -34,15 +35,52 @@ namespace ClassLibSailClub
             }
         }
 
-        public void UpdBoat(int sailNum)
+        public void UpdDam(int sailNum)
         {
+            foreach (Boat boat in Boats)
+            {
+                if (boat.SailNum == sailNum)
+                {
 
+                }
+            }
         }
 
-        public void ReadBoat(int sailNum)
+        public void UpdRep(int sailNum)
         {
+            foreach (Boat boat in Boats)
+            {
+                if (boat.SailNum == sailNum)
+                {
 
+                }
+            }
+        }
+
+        public void UpdData(int sailNum)
+        {
+            foreach (Boat boat in Boats)
+            {
+                if (boat.SailNum == sailNum)
+                {
+
+                }
+            }
+        }
+
+        public string ReadBoat(int sailNum)
+        {
+            foreach (Boat boat in Boats)
+            {
+                if (boat.SailNum == sailNum)
+                {
+                    return $"{boat.Type} {boat.Model} {boat.Year} {boat.Name} {boat.SailNum} {boat.MotorInf} {boat.Length}";
+                }
+
+
+            }
+
+            return $"Boat not found :(";
         }
     }
-
 }
