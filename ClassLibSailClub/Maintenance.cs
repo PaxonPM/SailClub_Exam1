@@ -11,7 +11,7 @@ public enum EnumStatus
     Klar
 
 }
-abstract class Maintenance
+abstract public class Maintenance
 {
     protected Dictionary<int, string> DamageLog { get; private set; } = new Dictionary<int, string>();
     protected int Id { get; private set; }
@@ -22,7 +22,7 @@ abstract class Maintenance
 
 
 
-    protected bool AddDamage(string damage)
+    public bool AddDamage(string damage)
     {
         try
         {
@@ -37,7 +37,7 @@ abstract class Maintenance
 
     }
 
-    protected bool reparation(int damageLogId)
+    public bool Repair(int damageLogId)
     {
         try
         {

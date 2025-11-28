@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ClassLibSailClub
 {
-    public class BoatReg : Maintenance
+    public class BoatReg 
 
     {
         List<Boat> Boats { get; set; } = new List<Boat>
@@ -35,35 +35,24 @@ namespace ClassLibSailClub
             }
         }
 
-        public void UpdDam(int sailNum)
+        public void UpdDam(int sailNum, string damage)
         {
             foreach (Boat boat in Boats)
             {
                 if (boat.SailNum == sailNum)
                 {
-
+                    boat.AddDamage(damage);
                 }
             }
         }
 
-        public void UpdRep(int sailNum)
+        public void UpdRep(int sailNum, int damageLogId)
         {
             foreach (Boat boat in Boats)
             {
                 if (boat.SailNum == sailNum)
                 {
-
-                }
-            }
-        }
-
-        public void UpdData(int sailNum)
-        {
-            foreach (Boat boat in Boats)
-            {
-                if (boat.SailNum == sailNum)
-                {
-
+                    boat.Repair(damageLogId);
                 }
             }
         }

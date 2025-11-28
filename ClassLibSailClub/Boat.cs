@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ClassLibSailClub
 {
-    public class Boat
+    public class Boat : Maintenance
     {
         public string Type { get; set; }
         public string Model { get; set; }
