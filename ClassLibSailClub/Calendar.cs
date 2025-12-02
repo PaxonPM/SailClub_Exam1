@@ -24,10 +24,10 @@ namespace ClassLibSailClub
         public event CreateEvent (string navn, string dato, string tid, int pris, string beskrivelse)
         {
             Event nytEvent = new Event(navn, dato, tid, pris, beskrivelse);
-        EventListe.Add(nytEvent);
-            return nytEvent; 
+            EventListe.Add(nytEvent);
+            return nytEvent;
         }
 
-}
+    }
 
 }
