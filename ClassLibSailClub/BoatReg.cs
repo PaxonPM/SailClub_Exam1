@@ -24,18 +24,20 @@ namespace ClassLibSailClub
             Boats.Add(tempObj);
         }
 
-        public void DelBoat(int sailNum)
+        public Boat DelBoat(int sailNum)
         {
             foreach (Boat boat in Boats)
             {
-                if (boat.SailNum == sailNum)
-                {
-                    Boats.Remove(boat);
-                }
+                    if (boat.SailNum == sailNum)
+                    {
+                        Boats.Remove(boat);
+                        return boat;
+                    }
             }
+            return null;
         }
 
-        public void UpdDam(int sailNum, string damage)
+        public string UpdDam(int sailNum, string damage)
         {
             foreach (Boat boat in Boats)
             {
@@ -44,9 +46,10 @@ namespace ClassLibSailClub
                     boat.AddDamage(damage);
                 }
             }
+            return null;
         }
 
-        public void UpdRep(int sailNum, int damageLogId)
+        public void UpdateRepair(int sailNum, int damageLogId)
         {
             foreach (Boat boat in Boats)
             {
@@ -57,19 +60,19 @@ namespace ClassLibSailClub
             }
         }
 
-        public string ReadBoat(int sailNum)
+        public Boat ReadBoat(int sailNum)
         {
             foreach (Boat boat in Boats)
             {
                 if (boat.SailNum == sailNum)
                 {
-                    return $"{boat.Type} {boat.Model} {boat.Year} {boat.Name} {boat.SailNum} {boat.MotorInf} {boat.Length}";
+                    return boat;
                 }
 
 
             }
 
-            return $"Boat not found :(";
+            return null;
         }
     }
 }

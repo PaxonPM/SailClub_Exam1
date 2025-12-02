@@ -20,6 +20,7 @@ namespace ClassLibSailClub
         {
             Type = type;
             Model = model;
+            Year = year;
             Name = name;
             SailNum = sailNum;
             MotorInf = motorInf;
