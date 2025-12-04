@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -8,33 +9,43 @@ namespace ClassLibSailClub
 {
     public class Event
     {
-        public string Navn { get; set; } //Properties
-        public string Dato { get; set; }
-        public string Tid { get; set; }
-        public int Pris { get; set; }
-        public string Beskrivelse { get; set; }
-        public List<Medlem> DeltagerListe { get; set; }
+        public string Name { get; set; } //Properties
+        public string Date { get; set; }
+        public string Time { get; set; }
+        public int Price { get; set; }
+        public string Description { get; set; }
+        public List<Member> DescriptionList { get; set; }
 
-        public Event(string navn, string dato, string tid, int pris, string beskrivelse)
+        public Event(string name, string date, string time, int price, string description)
 
         {
-            Navn = navn; //Constructor
-            Dato = dato;
-            Tid = tid;
-            Pris = pris;
-            Beskrivelse = beskrivelse;
-            DeltagerListe = new List<Medlem>();
+            Name = name; //Constructor
+            Date = date;
+            Time = time;
+            Price = price;
+            Description = description;
+            ParticipantList = new List<Member>();
         }
 
-        public void AddDeltager(Medlem deltager) //Method
+        public void AddParticipant(Member Participant) //Method
         {
-            DeltagerListe.Add(deltager);
+
+            if (Participant == null)
+                throw new ArgumentException("Argument er null i add deltager");
+
+            ParticipantList.Add(Participant); // Forsøger at tilføje deltager
+            //return true; // Hvis det lykkes, returneres true
+
         }
 
-        public void RemoveDeltager(Medlem deltager)
+        public void RemoveParticipant(Member participant)
         {
-            DeltagerListe.Remove(deltager);
-        }
+            if (participant == null)
+                throw new ArgumentException("Argument er null i Remove deltager");
 
+            ParticipantList.Remove(participant);
+        }
     }
 }
+
+
