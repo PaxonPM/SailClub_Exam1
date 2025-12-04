@@ -5,7 +5,7 @@ VisualStudioVersion = 17.14.36511.14
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClassLibSailClub", "ClassLibSailClub\ClassLibSailClub.csproj", "{B5C2E4A2-D422-4BC0-B857-D6E209DAF525}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShowCase", "ShowCase\ShowCase.csproj", "{830D02CE-428D-0E91-D34F-09A3A32B102A}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShowCase", "ShowCase\ShowCase.csproj", "{B58C010D-2111-4FA2-AFDF-1A818CC01AA9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,10 +17,10 @@ Global
 		{B5C2E4A2-D422-4BC0-B857-D6E209DAF525}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B5C2E4A2-D422-4BC0-B857-D6E209DAF525}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B5C2E4A2-D422-4BC0-B857-D6E209DAF525}.Release|Any CPU.Build.0 = Release|Any CPU
-		{830D02CE-428D-0E91-D34F-09A3A32B102A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{830D02CE-428D-0E91-D34F-09A3A32B102A}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{830D02CE-428D-0E91-D34F-09A3A32B102A}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{830D02CE-428D-0E91-D34F-09A3A32B102A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B58C010D-2111-4FA2-AFDF-1A818CC01AA9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B58C010D-2111-4FA2-AFDF-1A818CC01AA9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B58C010D-2111-4FA2-AFDF-1A818CC01AA9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B58C010D-2111-4FA2-AFDF-1A818CC01AA9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
