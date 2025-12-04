@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static System.Net.Mime.MediaTypeNames;
 
 public enum EnumStatus
 {
@@ -22,39 +23,24 @@ abstract public class Maintenance
 
 
 
-    public bool AddDamage(string damage)
+    public void AddDamage(string damage)
     {
-        try
-        {
-            Id++;
-            DamageLog.Add(Id, damage);
-            return true;
-        }
-        catch
-        {
-            return false;
-        }
-
+       
+        if (string.IsNullOrWhiteSpace(damage))
+            throw new ArgumentException("Damage must not be empty or whitespace");
+        Id++;
+        DamageLog.Add(Id, damage);
+        
     }
 
-    public bool Repair(int damageLogId)
+    public void Repair(int damageLogId)
     {
-        try
-        {
-            string skade = DamageLog[damageLogId];
-            DamageLog.Remove(damageLogId);
-            MaintenanceLog.Add(skade);
+        if (damageLogId < 0)
+            throw new ArgumentException("Damage must not be less than zero");
 
-            return true;
-        }
-        catch
-        {
-            return false;
-        }
-
-
-
-
+        string skade = DamageLog[damageLogId];
+        DamageLog.Remove(damageLogId);
+        MaintenanceLog.Add(skade);
     }
 
 }
