@@ -4,21 +4,22 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+namespace ClassLibSailClub
 
 {
-    internal class Booking // propperties
+    public class Booking // propperties
     {
         public string datoStart { get; set; }
         public string datoSlut { get; set; }
-        public Medlem medlem { get; set; }
+        public Member member { get; set; }
         public Boat boat { get; set; }
 
-        public Booking(string datoStart, string datoSlut, Medlem medlem, Boat boat) //constructor 
+        public Booking(string datoStart, string datoSlut, Member member, Boat boat) //constructor 
 
         {
             this.datoStart = datoStart;
             this.datoSlut = datoSlut;
-            this.medlem = medlem;
+            this.member = member;
             this.boat = boat;
         }
 
@@ -26,7 +27,7 @@ using System.Threading.Tasks;
         {
             this.datoStart = nyStart;
             this.datoSlut = nySlut;
-            return datoStart + "_" + datoSlut; // "_" bruges som adskiller mellem start- og slutdato
+            //return datoStart + "_" + datoSlut; // "_" bruges som adskiller mellem start- og slutdato
         }
 
     }

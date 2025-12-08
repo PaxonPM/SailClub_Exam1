@@ -6,21 +6,21 @@ using System.Threading.Tasks;
 
 namespace ClassLibSailClub
 {
-    public class MedlemRegister
+    public class MemberRegister
     {
-        private readonly Dictionary<int, Medlem> medlemmer = new();
+        private readonly Dictionary<int, Member> members = new();
 
         public void CreateMedlem(int id, string name, string address, string mail, string phone, bool areYouAdmin = false)
         {
-            if (medlemmer.ContainsKey(id))
+            if (members.ContainsKey(id))
                 throw new ArgumentException($"Et medlem med ID {id} findes allerede!");
 
-            medlemmer[id] = new Medlem(id, name, address, mail, phone, areYouAdmin);
+            members[id] = new Member(id, name, address, mail, phone, areYouAdmin);
         }
 
-        public Medlem GetMedlem(int id)
+        public Member GetMedlem(int id)
         {
-            if (!medlemmer.TryGetValue(id, out var medlem))
+            if (!members.TryGetValue(id, out var medlem))
                 throw new KeyNotFoundException($"Medlem med ID {id} blev ikke fundet.");
 
             return medlem;
@@ -28,33 +28,33 @@ namespace ClassLibSailClub
 
         public void UpdateMedlem(int id, string name, string address, string mail, string phone, bool areYouAdmin = false)
         {
-            if (!medlemmer.TryGetValue(id, out var medlem))
+            if (!members.TryGetValue(id, out var member))
                 throw new KeyNotFoundException($"Medlem med ID {id} blev ikke fundet.");
 
-            medlem.Name = name;
-            medlem.Address = address;
-            medlem.Mail = mail;
-            medlem.Phone = phone;
-            medlem.AreYouAdmin = areYouAdmin;
+            member.Name = name;
+            member.Address = address;
+            member.Mail = mail;
+            member.Phone = phone;
+            member.AreYouAdmin = areYouAdmin;
         }
 
         public void DeleteMedlem(int id)
         {
-            if (!medlemmer.Remove(id))
+            if (!members.Remove(id))
                 throw new KeyNotFoundException($"Medlem med ID {id} blev ikke fundet.");
         }
 
         public void PrintMedlemmer()
         {
-            if (medlemmer.Count == 0)
+            if (members.Count == 0)
             {
                 throw new ArgumentNullException("Ingen medlemmer i systemet.");
             }
 
-            foreach (var medlem in medlemmer.Values)
+            foreach (Member member in members.Values)
             {
                 Console.WriteLine(
-                    $"ID: {medlem.Id}, Navn: {medlem.Name}, Adresse: {medlem.Address}, Mail: {medlem.Mail}, Telefon: {medlem.Phone}, Admin: {medlem.AreYouAdmin}"
+                    $"ID: {member.Id}, Navn: {member.Name}, Adresse: {member.Address}, Mail: {member.Mail}, Telefon: {member.Phone}, Admin: {member.AreYouAdmin}"
                 );
             }
         }
