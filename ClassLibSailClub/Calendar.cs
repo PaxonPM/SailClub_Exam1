@@ -24,16 +24,16 @@ namespace ClassLibSailClub
         //Method
         public Event CreateEvent(string name, string date, string time, int price, string description)
         {
-            
-                if(string.IsNullOrEmpty(name))
-                    throw new ArgumentException("The input was null or empty");
-                    
-                
-                Event newEvent = new Event(name, date, time, price, description);
-                EventList.Add(newEvent);
-                return newEvent; // Hvis alt lykkes, returneres det oprettede event
-            
-        
+
+            if (string.IsNullOrEmpty(name))
+                throw new ArgumentException("The input was null or empty");
+
+
+            Event newEvent = new Event(name, date, time, price, description);
+            EventList.Add(newEvent);
+            return newEvent; // Hvis alt lykkes, returneres det oprettede event
+
+
         }
     }
 }
