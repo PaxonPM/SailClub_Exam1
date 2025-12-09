@@ -9,17 +9,17 @@
         public string Phone { get; set; }
 
 
-        public bool AreYouAdmin { get; set; } = false;
+        public bool IsAdmin { get; set; } = false;
 
         //Constructor
-        public Member(int id, string name, string address, string mail, string phone, bool areYouAdmin = false)
+        public Member(int id, string name, string address, string mail, string phone, bool isAdmin = false)
         {
             Id = id;
             Name = name;
             Address = address;
             Mail = mail;
             Phone = phone;
-            AreYouAdmin = areYouAdmin;
+            IsAdmin = isAdmin;
         }
 
         //Methods

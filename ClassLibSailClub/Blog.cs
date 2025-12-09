@@ -15,7 +15,7 @@ namespace ClassLibSailClub
 
         public void CreateBlogPost(Member member, string date, string time, string title, string body)
         {
-            if(member.AreYouAdmin)
+            if(member.IsAdmin)
             {
                 BlogPost tempPost = new BlogPost(date, time, title, body);
                 BlogList.Add(tempPost);

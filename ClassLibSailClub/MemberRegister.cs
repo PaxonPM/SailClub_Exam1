@@ -10,7 +10,7 @@ namespace ClassLibSailClub
     {
         private readonly Dictionary<int, Member> members = new();
 
-        public void CreateMedlem(int id, string name, string address, string mail, string phone, bool areYouAdmin = false)
+        public void CreateMember(int id, string name, string address, string mail, string phone, bool areYouAdmin = false)
         {
             if (members.ContainsKey(id))
                 throw new ArgumentException($"Et medlem med ID {id} findes allerede!");
@@ -18,7 +18,7 @@ namespace ClassLibSailClub
             members[id] = new Member(id, name, address, mail, phone, areYouAdmin);
         }
 
-        public Member GetMedlem(int id)
+        public Member GetMember(int id)
         {
             if (!members.TryGetValue(id, out var medlem))
                 throw new KeyNotFoundException($"Medlem med ID {id} blev ikke fundet.");
@@ -26,7 +26,7 @@ namespace ClassLibSailClub
             return medlem;
         }
 
-        public void UpdateMedlem(int id, string name, string address, string mail, string phone, bool areYouAdmin = false)
+        public void UpdateMember(int id, string name, string address, string mail, string phone, bool isAdmin = false)
         {
             if (!members.TryGetValue(id, out var member))
                 throw new KeyNotFoundException($"Medlem med ID {id} blev ikke fundet.");
@@ -35,16 +35,16 @@ namespace ClassLibSailClub
             member.Address = address;
             member.Mail = mail;
             member.Phone = phone;
-            member.AreYouAdmin = areYouAdmin;
+            member.IsAdmin = isAdmin;
         }
 
-        public void DeleteMedlem(int id)
+        public void DeleteMember(int id)
         {
             if (!members.Remove(id))
                 throw new KeyNotFoundException($"Medlem med ID {id} blev ikke fundet.");
         }
 
-        public void PrintMedlemmer()
+        public void PrintMembers()
         {
             if (members.Count == 0)
             {
