@@ -9,10 +9,7 @@ namespace ClassLibSailClub
     public class BoatReg 
 
     {
-        List<Boat> Boats { get; set; } = new List<Boat>
-        {
-
-        };
+        List<Boat> Boats { get; set; } = new List<Boat>();
         public BoatReg()
         {
 
