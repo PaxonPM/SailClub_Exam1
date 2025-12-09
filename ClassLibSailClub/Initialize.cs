@@ -18,6 +18,16 @@ namespace ClassLibSailClub
             BoatReg.AddBoat("Sejlbåd", "Oceanis 54", 1980, "Jens", 005, "Volvo 50 hk", 54.0);
 
             BoatReg.ReadBoat(003);
+            BoatReg.DelBoat(002);
+            BoatReg.ReadBoat(002);
+
+            var MedlemRegister = new MedlemRegister();
+            MedlemRegister.CreateMedlem(003, "Nicolaj", "Nicolajvej 69", "Nicolaj@gmail.com", "78 98 72 63", false);
+            MedlemRegister.CreateMedlem(004, "Paw", "Pawgade 420", "Paw@gmail.com", "69 69 69 69", false);
+            MedlemRegister.CreateMedlem(005, "Malinda", "Malinda Allé 47", "Malinda@gmail.com", "77 88 99 11 07", false);
+            MedlemRegister.CreateMedlem(006, "Lejla", "Lejlastræde 32", "Lejla@gmail.com", " 59 03 77 91", false);
+            MedlemRegister.CreateMedlem(007, "Lucas", "Maglegårdsvej 2", "Lucas@gmail.com", "52 30 92 01", true);
+
         }
     }
 }
