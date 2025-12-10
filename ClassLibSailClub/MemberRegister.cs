@@ -54,7 +54,7 @@ namespace ClassLibSailClub
             foreach (Member member in members.Values)
             {
                 Console.WriteLine(
-                    $"ID: {member.Id}, Navn: {member.Name}, Adresse: {member.Address}, Mail: {member.Mail}, Telefon: {member.Phone}, Admin: {member.AreYouAdmin}"
+                    $"ID: {member.Id}, Navn: {member.Name}, Adresse: {member.Address}, Mail: {member.Mail}, Telefon: {member.Phone}, Admin: {member.IsAdmin}"
                 );
             }
         }

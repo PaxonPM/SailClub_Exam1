@@ -9,31 +9,31 @@ namespace ClassLibSailClub
 {
     public class Booking // propperties
     {
-        public string datoStart { get; set; }
-        public string datoSlut { get; set; }
-        public Member member { get; set; }
-        public Boat boat { get; set; }
+        public string DatoStart { get; set; }
+        public string DatoSlut { get; set; }
+        public Member Member { get; set; }
+        public Boat Boat { get; set; }
 
-        public Booking(string datoStart, string datoSlut, Medlem medlem, Boat boat)
+        public Booking(string datoStart, string datoSlut, Member member, Boat boat)
         {
             try
             {
                 if (datoStart == null || datoSlut == null)
                     throw new Exception();
 
-                if (medlem == null || boat == null)
+                if (member == null || boat == null)
                     throw new Exception();
 
                 DatoStart = datoStart;
                 DatoSlut = datoSlut;
-                Medlem = medlem;
+                Member = member;
                 Boat = boat;
             }
             catch
             {
                 DatoStart = null;
                 DatoSlut = null;
-                Medlem = null;
+                Member = null;
                 Boat = null;
             }
         }
@@ -59,7 +59,6 @@ namespace ClassLibSailClub
     }
 }
 
-}
 
 
 

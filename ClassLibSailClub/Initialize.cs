@@ -17,16 +17,18 @@ namespace ClassLibSailClub
             BoatReg.AddBoat("Motorbåd", "Stingray 270 S", 2008, "Rokken", 004, "Volvo Penta 5.0 GXI", 30.0);
             BoatReg.AddBoat("Sejlbåd", "Oceanis 54", 1980, "Jens", 005, "Volvo 50 hk", 54.0);
 
-            BoatReg.ReadBoat(003);
-            BoatReg.DelBoat(002);
-            BoatReg.ReadBoat(002);
+            Boat tempboat = BoatReg.ReadBoat(003);
+            Console.WriteLine($"Type:{tempboat.Type}, Name:{tempboat.Name}");
+            BoatReg.DelBoat(003);
+            tempboat = BoatReg.ReadBoat(002);
+            Console.WriteLine(tempboat);
 
-            var MedlemRegister = new MedlemRegister();
-            MedlemRegister.CreateMedlem(003, "Nicolaj", "Nicolajvej 69", "Nicolaj@gmail.com", "78 98 72 63", false);
-            MedlemRegister.CreateMedlem(004, "Paw", "Pawgade 420", "Paw@gmail.com", "69 69 69 69", false);
-            MedlemRegister.CreateMedlem(005, "Malinda", "Malinda Allé 47", "Malinda@gmail.com", "77 88 99 11 07", false);
-            MedlemRegister.CreateMedlem(006, "Lejla", "Lejlastræde 32", "Lejla@gmail.com", " 59 03 77 91", false);
-            MedlemRegister.CreateMedlem(007, "Lucas", "Maglegårdsvej 2", "Lucas@gmail.com", "52 30 92 01", true);
+            MemberRegister MemberRegister = new MemberRegister();
+            MemberRegister.CreateMember(003, "Nicolaj", "Nicolajvej 69", "Nicolaj@gmail.com", "78 98 72 63", false);
+            MemberRegister.CreateMember(004, "Paw", "Pawgade 420", "Paw@gmail.com", "69 69 69 69", false);
+            MemberRegister.CreateMember(005, "Malinda", "Malinda Allé 47", "Malinda@gmail.com", "77 88 99 11 07", false);
+            MemberRegister.CreateMember(006, "Lejla", "Lejlastræde 32", "Lejla@gmail.com", " 59 03 77 91", false);
+            MemberRegister.CreateMember(007, "Lucas", "Maglegårdsvej 2", "Lucas@gmail.com", "52 30 92 01", true);
 
         }
     }
