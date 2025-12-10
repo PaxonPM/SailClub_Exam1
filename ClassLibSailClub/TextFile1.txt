@@ -1,39 +1,14 @@
 ﻿
 
-Tilføje båd inheritance
+I event
+	få metoder til at returnere relevante objekter.
 
-eg. 
-
-is-a
--Boat
-	-Motorboat
-	-Sailboat
-	- paddlecraft
-gemmes i boat list for polymorphism
-
--person
-	-member
-	-admin
-	-instructor
-
--calendar entry
-	-Booking
-	-Event
-	kan gemme begge i list<calendar Entry> for polymorphism
+Calendar
+	Lav om så det kun er for event kald den eventplanner
+	og igen med metoder lav dem om så de returnere relevante objekter.
 
 
-has-a
-
-masser af disse
-registre has a list/dict of ### objects
-
-
-Interfaces
-
-hvor giver det mening 
-
-måske et registre interface for crud metoder.
-
+Se metode i event.cs RemoveParticipant.
 
 
 

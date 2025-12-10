@@ -37,12 +37,13 @@ namespace ClassLibSailClub
 
         }
 
-        public void RemoveParticipant(Member participant)
+        public Member RemoveParticipant(Member participant)
         {
             if (participant == null)
                 throw new ArgumentException("Argument er null i Remove deltager");
-
+                
             ParticipantList.Remove(participant);
+            return participant;
         }
     }
 }
