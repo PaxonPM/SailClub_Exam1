@@ -14,25 +14,53 @@ namespace ClassLibSailClub
         public Member member { get; set; }
         public Boat boat { get; set; }
 
-        public Booking(string datoStart, string datoSlut, Member member, Boat boat) //constructor 
-
+        public Booking(string datoStart, string datoSlut, Medlem medlem, Boat boat)
         {
-            this.datoStart = datoStart;
-            this.datoSlut = datoSlut;
-            this.member = member;
-            this.boat = boat;
-        }
+            try
+            {
+                if (datoStart == null || datoSlut == null)
+                    throw new Exception();
 
-        public void updateDato(string nyStart, string nySlut) //Method
+                if (medlem == null || boat == null)
+                    throw new Exception();
+
+                DatoStart = datoStart;
+                DatoSlut = datoSlut;
+                Medlem = medlem;
+                Boat = boat;
+            }
+            catch
+            {
+                DatoStart = null;
+                DatoSlut = null;
+                Medlem = null;
+                Boat = null;
+            }
+        }
+        
+
+        public string UpdateDato(string nyStart, string nySlut)
         {
-            this.datoStart = nyStart;
-            this.datoSlut = nySlut;
-            //return datoStart + "_" + datoSlut; // "_" bruges som adskiller mellem start- og slutdato
-        }
+            try
+            {
+                if (nyStart == null || nySlut == null)
+                    throw new Exception();
 
+                DatoStart = nyStart;
+                DatoSlut = nySlut;
+
+                return DatoStart + "_" + DatoSlut;
+            }
+            catch
+            {
+                return null;
+            }
+        }
     }
+}
 
 }
+
 
 
 
