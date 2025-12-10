@@ -1,0 +1,40 @@
+﻿
+
+Tilføje båd inheritance
+
+eg. 
+
+is-a
+-Boat
+	-Motorboat
+	-Sailboat
+	- paddlecraft
+gemmes i boat list for polymorphism
+
+-person
+	-member
+	-admin
+	-instructor
+
+-calendar entry
+	-Booking
+	-Event
+	kan gemme begge i list<calendar Entry> for polymorphism
+
+
+has-a
+
+masser af disse
+registre has a list/dict of ### objects
+
+
+Interfaces
+
+hvor giver det mening 
+
+måske et registre interface for crud metoder.
+
+
+
+
+
