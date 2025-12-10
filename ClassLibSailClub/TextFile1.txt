@@ -34,3 +34,7 @@ hvor giver det mening
 
 måske et registre interface for crud metoder.
 
+
+
+
+
