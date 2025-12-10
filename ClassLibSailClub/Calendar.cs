@@ -12,7 +12,7 @@ namespace ClassLibSailClub
 {
     public class Calendar
     {
-        public List<Booking> BookingList { get; set; } //Liste
+        public List<Booking> BookingList { get; set; } //Lister til booking og events
         public List<Event> EventList { get; set; }
 
         public Calendar() //constructor
@@ -24,16 +24,36 @@ namespace ClassLibSailClub
         //Method
         public Event CreateEvent(string name, string date, string time, int price, string description)
         {
+                if(string.IsNullOrEmpty(name))
+                    throw new ArgumentException("The input was null or empty");
+                    
+                
+                Event newEvent = new Event(name, date, time, price, description);
+                EventList.Add(newEvent);
+                return newEvent; // Hvis alt lykkes, returneres det oprettede event
+        
+        }
 
-            if (string.IsNullOrEmpty(name))
-                throw new ArgumentException("The input was null or empty");
+        public void DeleteEvent(Event eventToDelete) 
+        {
+            if (!EventList.Remove(eventToDelete))
+            {
+                throw new KeyNotFoundException("Eventet blev ikke fundet i kalenderen.");
+            }
+        }
 
+        public void UpdateEvent(Event eventToUpdate, string name, string date, string time, int price, string description)
+        {
+            if (!EventList.Contains(eventToUpdate))
+            {
+                throw new KeyNotFoundException("Eventet blev ikke fundet i kalenderen.");
+            }
 
-            Event newEvent = new Event(name, date, time, price, description);
-            EventList.Add(newEvent);
-            return newEvent; // Hvis alt lykkes, returneres det oprettede event
-
-
+            eventToUpdate.Name = name;
+            eventToUpdate.Date = date;
+            eventToUpdate.Time = time;
+            eventToUpdate.Price = price;
+            eventToUpdate.Description = description;
         }
     }
 }
