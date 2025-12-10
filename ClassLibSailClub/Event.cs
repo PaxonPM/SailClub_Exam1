@@ -14,8 +14,7 @@ namespace ClassLibSailClub
         public string Time { get; set; }
         public int Price { get; set; }
         public string Description { get; set; }
-        public List<Member> DescriptionList { get; set; }
-
+        public List<Member> ParticipantList { get; set; }
         public Event(string name, string date, string time, int price, string description)
 
         {

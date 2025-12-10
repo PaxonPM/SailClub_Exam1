@@ -5,13 +5,14 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace ClassLibSailClub
+
 {
-    public class Booking
+    public class Booking // propperties
     {
-        public string DatoStart { get; set; }
-        public string DatoSlut { get; set; }
-        public Medlem Medlem { get; set; }
-        public Boat Boat { get; set; }
+        public string datoStart { get; set; }
+        public string datoSlut { get; set; }
+        public Member member { get; set; }
+        public Boat boat { get; set; }
 
         public Booking(string datoStart, string datoSlut, Medlem medlem, Boat boat)
         {

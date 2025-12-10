@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ClassLibSailClub
 {
-    public class Boat : Maintenance
+    public class Boat
     {
         public string Type { get; set; }
         public string Model { get; set; }
@@ -15,6 +15,8 @@ namespace ClassLibSailClub
         public int SailNum { get; set; }
         public string MotorInf { get; set; }
         public double Length { get; set; }
+
+        public MaintenanceRecord Maintenance { get; } = new MaintenanceRecord();
 
         public Boat(string type, string model, int year, string name, int sailNum, string motorInf, double length)
         {
