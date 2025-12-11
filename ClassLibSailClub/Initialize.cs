@@ -11,16 +11,17 @@ namespace ClassLibSailClub
         public static void Start()
         {
             var BoatReg = new BoatReg();
-            Boat boat1 = new MotorBoat();
+            Boat boat1 = new PaddleBoat("59 north", 1980,"Skilsmissebåden", 01, 4, 4);
             BoatReg.AddBoat(boat1);
-            BoatReg.AddBoat("Speedbåd", "Sunseeker", 1992, "Slice of Life", 001, "Volvo 500 hk", 27.0);
-            BoatReg.AddBoat("Sejlbåd", "Maxi", 1978, "Titanic", 002, "Volvo Penta MD7A", 28.0);
-            BoatReg.AddBoat("RIB", "Njord Frigg 300", 2023, "Peter", 003, "20 hk", 10.0);
-            BoatReg.AddBoat("Motorbåd", "Stingray 270 S", 2008, "Rokken", 004, "Volvo Penta 5.0 GXI", 30.0);
-            BoatReg.AddBoat("Sejlbåd", "Oceanis 54", 1980, "Jens", 005, "Volvo 50 hk", 54.0);
-
+            Boat boat2 = new SailBoat("Laser 200", 1940, "Tøsebåden", 02, 2, 1, 10, 10);
+            BoatReg.AddBoat(boat2);
+            Boat boat3 = new MotorBoat("Stingray", 1969, "Måneskin", 03, 26, 30, "Yamaha V8, Diesel",300 );
+            BoatReg.AddBoat(boat3);
+            Boat boat = new SailBoat("Træskib",);
+            
+           
             Boat tempboat = BoatReg.ReadBoat(003);
-            Console.WriteLine($"Type:{tempboat.Type}, Name:{tempboat.Name}");
+            Console.WriteLine($"Type:{tempboat.Model}, Name:{tempboat.Name}");
             BoatReg.DelBoat(003);
             tempboat = BoatReg.ReadBoat(002);
             Console.WriteLine(tempboat);

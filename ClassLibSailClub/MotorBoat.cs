@@ -8,14 +8,16 @@ namespace ClassLibSailClub
 {
     public class MotorBoat : Boat
     {
-        public MotorBoat(string model, int year, string name, int sailNum, int capacity, double length)
+        public string MotorInf { get; set; }
+        public double HorsePower { get; set; }
+        public MotorBoat(string model, int year, string name, int sailNum, int capacity, double length, string motorInf, double horsePower)
        : base(model, year, name, sailNum, capacity, length)
         {
-
+            MotorInf = motorInf;
+            HorsePower = horsePower;
         }
 
-        public int NumberOfSails { get; set; }
-        public double SailSizeM2 { get; set; }
+       
 
       //  public MotorBoat(string model, int year, string name, int sailNum, int capacity, double length, int numberOfSails, double sailSizeM2)
         //{
