@@ -17,22 +17,13 @@ namespace ClassLibSailClub
             BoatReg.AddBoat(boat2);
             Boat boat3 = new MotorBoat("Stingray", 1969, "Måneskin", 03, 26, 30, "Yamaha V8, Diesel",300 );
             BoatReg.AddBoat(boat3);
-            Boat boat = new SailBoat("Træskib",);
+            Boat boat4 = new SailBoat("Træskib", 1492, "Santa Maria", 04, 40, 64.3, 4, 300);
+            BoatReg.AddBoat(boat4);
             
-           
-            Boat tempboat = BoatReg.ReadBoat(003);
-            Console.WriteLine($"Type:{tempboat.Model}, Name:{tempboat.Name}");
+            
+            Console.WriteLine(BoatReg.ReadBoat(003));
             BoatReg.DelBoat(003);
-            tempboat = BoatReg.ReadBoat(002);
-            Console.WriteLine(tempboat);
-
-            MemberRegister MemberRegister = new MemberRegister();
-            MemberRegister.CreateMember(003, "Nicolaj", "Nicolajvej 69", "Nicolaj@gmail.com", "78 98 72 63", false);
-            MemberRegister.CreateMember(004, "Paw", "Pawgade 420", "Paw@gmail.com", "69 69 69 69", false);
-            MemberRegister.CreateMember(005, "Malinda", "Malinda Allé 47", "Malinda@gmail.com", "77 88 99 11 07", false);
-            MemberRegister.CreateMember(006, "Lejla", "Lejlastræde 32", "Lejla@gmail.com", " 59 03 77 91", false);
-            MemberRegister.CreateMember(007, "Lucas", "Maglegårdsvej 2", "Lucas@gmail.com", "52 30 92 01", true);
-
+            Console.WriteLine(BoatReg.ReadBoat(002));
         }
     }
 }
