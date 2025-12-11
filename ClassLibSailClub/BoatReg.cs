@@ -13,9 +13,9 @@ namespace ClassLibSailClub
        
        
 
-        public void AddBoat(string type, string model, int year, string name, int sailNum, string motorInf, double length)
+        public void AddBoat(string model, int year, string name, int sailNum, int capacity, double length)
         {
-            Boats.Add(new Boat(type, model, year, name, sailNum, motorInf, length));
+            Boats.Add(new Boat(model, year, name, capacity, sailNum, length));
             //Boat tempObj = new Boat(type, model, year, name, sailNum, motorInf, length);
             //Boats.Add(tempObj);
         }

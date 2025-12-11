@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ClassLibSailClub
 {
-    internal class MotorBoat
+    public class MotorBoat : Boat
     {
         public MotorBoat(string model, int year, string name, int sailNum, int capacity, double length)
        : base(model, year, name, sailNum, capacity, length)
@@ -17,10 +17,10 @@ namespace ClassLibSailClub
         public int NumberOfSails { get; set; }
         public double SailSizeM2 { get; set; }
 
-        public MotorBoat(string model, int year, string name, int sailNum, int capacity, double length, int numberOfSails, double sailSizeM2)
-        {
-            NumberOfSails = numberOfSails;
-            SailSizeM2 = sailSizeM2;
-        }
+      //  public MotorBoat(string model, int year, string name, int sailNum, int capacity, double length, int numberOfSails, double sailSizeM2)
+        //{
+          //  NumberOfSails = numberOfSails;
+            //SailSizeM2 = sailSizeM2;
+        //}
     }
 }

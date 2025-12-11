@@ -8,20 +8,16 @@ namespace ClassLibSailClub
 {
     public class SailBoat : Boat
     {
-        public SailBoat(string model, int year, string name, int sailNum, int capacity, double length)
+        public int NumberOfSails { get; set; }
+        public double SailSizeM2 { get; set; }
+        public SailBoat(string model, int year, string name, int sailNum, int capacity, double length, int numberOfSails, int sailSizeM2 )
         : base(model, year, name, sailNum, capacity, length)
-        {
-
-        }
-        
-            public int NumberOfSails { get; set; }
-            public double SailSizeM2 { get; set; }
-        
-        public SailBoat(string model, int year, string name, int sailNum, int capacity, double length, int numberOfSails, double sailSizeM2)
         {
             NumberOfSails = numberOfSails;
             SailSizeM2 = sailSizeM2;
-    }
+        }
+        
+         
     }
            
 
