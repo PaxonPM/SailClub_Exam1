@@ -1,4 +1,6 @@
-﻿namespace ClassLibSailClub
+﻿using System.Security.Cryptography;
+
+namespace ClassLibSailClub
 {
     public class Member : Person
     {
@@ -9,5 +11,12 @@
         {
             SignUpDate = DateTime.Now;
         }
+        public override string ToString()
+        {
+            return $"ID: {Id}, Name: {Name}, Address: {Address}, Mail: {Mail}, Phone: {Phone}, Sign up date: {SignUpDate}";
+        }
+
+
     }
+
 }
