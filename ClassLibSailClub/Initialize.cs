@@ -11,6 +11,8 @@ namespace ClassLibSailClub
         public static void Start()
         {
             var BoatReg = new BoatReg();
+            Boat boat1 = new MotorBoat();
+            BoatReg.AddBoat(boat1);
             BoatReg.AddBoat("Speedbåd", "Sunseeker", 1992, "Slice of Life", 001, "Volvo 500 hk", 27.0);
             BoatReg.AddBoat("Sejlbåd", "Maxi", 1978, "Titanic", 002, "Volvo Penta MD7A", 28.0);
             BoatReg.AddBoat("RIB", "Njord Frigg 300", 2023, "Peter", 003, "20 hk", 10.0);

@@ -12,12 +12,21 @@ namespace ClassLibSailClub
         public List<Boat> Boats { get; private set; } = new List<Boat>();
        
        
-
-        public void AddBoat(string model, int year, string name, int sailNum, int capacity, double length)
+        // public Boat AddBoat(Boat tempBoat)
+        // Boats.Add(tempBoat)
+        public Boat AddBoat(Boat tempBoat)
+           
         {
-            Boats.Add(new Boat(model, year, name, capacity, sailNum, length));
-            //Boat tempObj = new Boat(type, model, year, name, sailNum, motorInf, length);
-            //Boats.Add(tempObj);
+            if(tempBoat != null)
+            { 
+                Boats.Add(tempBoat);
+                return tempBoat;
+            }
+            
+            return null;
+            
+
+            
         }
 
         public Boat DelBoat(int sailNum)
