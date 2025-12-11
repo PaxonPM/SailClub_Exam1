@@ -29,6 +29,22 @@ namespace ClassLibSailClub
             MemberRegister.CreateMember(005, "Malinda", "Malinda Allé 47", "Malinda@gmail.com", "77 88 99 11 07", false);
             MemberRegister.CreateMember(006, "Lejla", "Lejlastræde 32", "Lejla@gmail.com", " 59 03 77 91", false);
             MemberRegister.CreateMember(007, "Lucas", "Maglegårdsvej 2", "Lucas@gmail.com", "52 30 92 01", true);
+            
+            EventPlanner planner = new EventPlanner();
+            Event e1 = planner.CreateEvent("Julefrokost", "12/12", "18:00", 50, "Hyggeaften i klubben");
+            Event e2 = planner.CreateEvent("Nytårsaften", "31/12", "21:00", 100, "Nytårsaften i klubben");
+            Event e3 = planner.CreateEvent("Bowling aften", "10/02", "20:00", 150, "Bowling aften i klubben");
+            Event e4 = planner.CreateEvent("Bingo aften", "14/02", "18:00", 50, "Bingo aften i klubben");
+            Member m1 = new Member(1, "Lars", "Adress", "Mail", "Phone");
+            e1.AddParticipant(m1);
+            e2.AddParticipant(m1);
+            e2.RemoveParticipant(m1);
+            planner.UpdateEvent(e1, "Julefrokost 2025", "13/12", "19:00", 75, "Opdateret beskrivelse");
+            
+            foreach (Event ev in planner.ReadAllEvents())
+            {
+                Console.WriteLine(ev.ToString());
+            }
 
         }
     }

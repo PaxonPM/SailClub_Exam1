@@ -26,14 +26,14 @@ namespace ClassLibSailClub
             ParticipantList = new List<Member>();
         }
 
-        public void AddParticipant(Member Participant) //Method
+        public Member AddParticipant(Member Participant) //Method
         {
 
             if (Participant == null)
                 throw new ArgumentException("Argument er null i add deltager");
 
-            ParticipantList.Add(Participant); // Forsøger at tilføje deltager
-            //return true; // Hvis det lykkes, returneres true
+            ParticipantList.Add(Participant); 
+            return Participant;
 
         }
 
@@ -44,6 +44,19 @@ namespace ClassLibSailClub
                 
             ParticipantList.Remove(participant);
             return participant;
+        }
+
+        public override string ToString()
+        {
+            string participantsText = "";
+            foreach (var p in ParticipantList)
+            {
+                participantsText += p.ToString() + "\n";
+            }
+
+            return $"-------------------\n" +
+                   $"Name:{Name}, Date:{Date}, Time:{Time}, Price:{Price}, Description:{Description} " +
+                   $"ParticipantList:\n {participantsText}";
         }
     }
 }
