@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ClassLibSailClub
 {
-    public class BoatReg 
+    public class BoatReg  : IBoatRegister
 
     {
         public List<Boat> Boats { get; private set; } = new List<Boat>();
