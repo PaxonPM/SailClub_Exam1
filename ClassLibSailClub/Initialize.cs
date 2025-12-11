@@ -30,6 +30,19 @@ namespace ClassLibSailClub
             MemberRegister.CreateMember(006, "Lejla", "Lejlastræde 32", "Lejla@gmail.com", " 59 03 77 91", false);
             MemberRegister.CreateMember(007, "Lucas", "Maglegårdsvej 2", "Lucas@gmail.com", "52 30 92 01", true);
 
+           
+            BookingOverview bookingOverview = new BookingOverview();
+            Booking b1 = bookingOverview.CreateOverview("01/03", "05/03", MemberRegister.ReadMember(003), BoatReg.ReadBoat(001));
+            Booking b2 = bookingOverview.CreateOverview("10/04", "12/04", MemberRegister.ReadMember(004), BoatReg.ReadBoat(002));
+            Booking b3 = bookingOverview.CreateOverview("20/05", "22/05", MemberRegister.ReadMember(005), BoatReg.ReadBoat(003));
+            bookingOverview.UpdateDato(b1, "02/03", "06/03");
+            bookingOverview.DeleteBooking(b2);
+            foreach (Booking booking in bookingOverview.ReadAll())
+            {
+                Console.WriteLine(booking.ToString()); 
+            }
+                
+
         }
     }
 }
