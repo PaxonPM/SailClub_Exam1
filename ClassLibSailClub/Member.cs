@@ -1,41 +1,22 @@
-﻿namespace ClassLibSailClub
+﻿using System.Security.Cryptography;
+
+namespace ClassLibSailClub
 {
-    public class Member
+    public class Member : Person
     {
-        public int Id { get; set; }
-        public string Name { get; set; }
-        public string Address { get; set; }
-        public string Mail { get; set; }
-        public string Phone { get; set; }
+        public DateTime SignUpDate { get; private set; }
 
-
-        public bool IsAdmin { get; set; } = false;
-
-        //Constructor
-        public Member(int id, string name, string address, string mail, string phone, bool isAdmin = false)
+        public Member(int id, string name, string address, string mail, string phone, DateTime signUpDate)
+            : base(id, name, address, mail, phone)
         {
-            Id = id;
-            Name = name;
-            Address = address;
-            Mail = mail;
-            Phone = phone;
-            IsAdmin = isAdmin;
+            SignUpDate = DateTime.Now;
+        }
+        public override string ToString()
+        {
+            return $"ID: {Id}, Name: {Name}, Address: {Address}, Mail: {Mail}, Phone: {Phone}, Sign up date: {SignUpDate}";
         }
 
-        //Methods
-        public void UpdatePhone(string newPhone)
-        {
-            Phone = newPhone;
-        }
 
-        public void UpdateAdress(string newAddress)
-        {
-            Address = newAddress;
-        }
-
-        public void UpdateMail(string newMail)
-        {
-            Mail = newMail;
-        }
     }
+
 }
