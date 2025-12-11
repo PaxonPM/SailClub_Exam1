@@ -16,48 +16,31 @@ namespace ClassLibSailClub
 
         public Booking(string datoStart, string datoSlut, Member member, Boat boat)
         {
-            try
-            {
-                if (datoStart == null || datoSlut == null)
-                    throw new Exception();
-
-                if (member == null || boat == null)
-                    throw new Exception();
-
-                DatoStart = datoStart;
-                DatoSlut = datoSlut;
-                Member = member;
-                Boat = boat;
-            }
-            catch
-            {
-                DatoStart = null;
-                DatoSlut = null;
-                Member = null;
-                Boat = null;
-            }
+            DatoStart = datoStart;
+            DatoSlut = datoSlut;
+            Member = member;
+            Boat = boat;
         }
         
-
         public string UpdateDato(string nyStart, string nySlut)
         {
-            try
-            {
-                if (nyStart == null || nySlut == null)
+            if (nyStart == null || nySlut == null)
                     throw new Exception();
 
-                DatoStart = nyStart;
-                DatoSlut = nySlut;
+            DatoStart = nyStart;
+            DatoSlut = nySlut;
 
-                return DatoStart + "_" + DatoSlut;
-            }
-            catch
-            {
-                return null;
-            }
+            return DatoStart + "_" + DatoSlut;
+        }
+
+        public override string ToString()
+        {
+            return $"DatoStart:{DatoStart}, DatoSlut:{DatoSlut}, Member:{Member}, Boat:{Boat}"; 
+        }
+
         }
     }
-}
+
 
 
 
