@@ -6,7 +6,12 @@ using System.Threading.Tasks;
 
 namespace ClassLibSailClub
 {
-    internal class Admin
+    public class Admin : Person
     {
+        public bool IsAdmin { get; set; } = true;
+
+        public Admin(int id, string name, string address, string mail, string phone)
+            : base(id, name, address, mail, phone)
+        { }
     }
 }

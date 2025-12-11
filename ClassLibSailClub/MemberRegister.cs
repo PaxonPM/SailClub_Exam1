@@ -10,12 +10,12 @@ namespace ClassLibSailClub
     {
         private readonly Dictionary<int, Member> members = new();
 
-        public void CreateMember(int id, string name, string address, string mail, string phone, bool areYouAdmin = false)
+        public void CreateMember(Member tempMember)
         {
-            if (members.ContainsKey(id))
-                throw new ArgumentException($"Et medlem med ID {id} findes allerede!");
+            if (members.ContainsKey(tempMember.Id))
+                throw new ArgumentException($"Et medlem med ID {tempMember.Id} findes allerede!");
 
-            members[id] = new Member(id, name, address, mail, phone, areYouAdmin);
+            members[tempMember.Id] = tempMember;
         }
 
         public Member GetMember(int id)
@@ -26,7 +26,7 @@ namespace ClassLibSailClub
             return medlem;
         }
 
-        public void UpdateMember(int id, string name, string address, string mail, string phone, bool isAdmin = false)
+        public void UpdateMember(int id, string name, string address, string mail, string phone, DateTime signUpDate)
         {
             if (!members.TryGetValue(id, out var member))
                 throw new KeyNotFoundException($"Medlem med ID {id} blev ikke fundet.");
@@ -35,7 +35,7 @@ namespace ClassLibSailClub
             member.Address = address;
             member.Mail = mail;
             member.Phone = phone;
-            member.IsAdmin = isAdmin;
+
         }
 
         public void DeleteMember(int id)
@@ -47,14 +47,13 @@ namespace ClassLibSailClub
         public void PrintMembers()
         {
             if (members.Count == 0)
-            {
                 throw new ArgumentNullException("Ingen medlemmer i systemet.");
-            }
 
             foreach (Member member in members.Values)
             {
                 Console.WriteLine(
-                    $"ID: {member.Id}, Navn: {member.Name}, Adresse: {member.Address}, Mail: {member.Mail}, Telefon: {member.Phone}, Admin: {member.IsAdmin}"
+                    $"ID: {member.Id}, Navn: {member.Name}, Adresse: {member.Address}, Mail: {member.Mail}, " +
+                    $"Telefon: {member.Phone}, Medlem siden: {member.SignUpDate}"
                 );
             }
         }
