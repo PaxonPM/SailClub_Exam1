@@ -31,7 +31,7 @@ public class BookingOverview
             throw new KeyNotFoundException("bookingen blev ikke fundet i kalenderen.");
         }
     }
-
+    
     public string UpdateDato(Booking booking, string nyStart, string nySlut)
     {
         if (booking == null)
@@ -45,7 +45,5 @@ public class BookingOverview
         return BookingList;
     }
 }
-
-
 
 
