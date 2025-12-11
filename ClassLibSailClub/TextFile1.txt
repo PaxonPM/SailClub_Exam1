@@ -1,5 +1,8 @@
 ﻿
 
+
+
+
 Tilføje båd inheritance
 
 eg. 
