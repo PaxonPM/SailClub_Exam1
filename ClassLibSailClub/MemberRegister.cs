@@ -1,21 +1,22 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace ClassLibSailClub
 {
-    public class MemberRegister : IMemberRegister
+    public class MemberRegister
     {
         public Dictionary<int, Member> Members { get; set; } = new();
 
-        public void CreateMember(Member tempMember)
+        public void AddMember(Member tempMember)
         {
-            if (members.ContainsKey(tempMember.Id))
+            if (Members.ContainsKey(tempMember.Id))
                 throw new ArgumentException($"Et medlem med ID {tempMember.Id} findes allerede!");
 
-            members[tempMember.Id] = tempMember;
+            Members[tempMember.Id] = tempMember;
         }
 
         public Member GetMember(int id)
@@ -44,18 +45,12 @@ namespace ClassLibSailClub
                 throw new KeyNotFoundException($"Medlem med ID {id} blev ikke fundet.");
         }
 
-        public void PrintMembers()
+        public Dictionary<int, Member> PrintMembers()
         {
-            if (members.Count == 0)
+            if (Members.Count == 0)
                 throw new ArgumentNullException("Ingen medlemmer i systemet.");
 
-            foreach (Member member in Members.Values)
-            {
-                Console.WriteLine(
-                    $"ID: {member.Id}, Navn: {member.Name}, Adresse: {member.Address}, Mail: {member.Mail}, " +
-                    $"Telefon: {member.Phone}, Medlem siden: {member.SignUpDate}"
-                );
-            }
+            return Members;
         }
     }
 }
