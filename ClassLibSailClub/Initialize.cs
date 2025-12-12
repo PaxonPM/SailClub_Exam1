@@ -19,14 +19,12 @@ namespace ClassLibSailClub
             BoatReg.AddBoat(boat3);
             Boat boat4 = new SailBoat("Træskib", 1492, "Santa Maria", 04, 40, 64.3, 4, 300);
             BoatReg.AddBoat(boat4);
-            
-            
+                
             Console.WriteLine(BoatReg.ReadBoat(003));
             BoatReg.DelBoat(003);
             tempboat = BoatReg.ReadBoat(002);
             Console.WriteLine(tempboat);
 
-            MemberRegister MemberRegister = new MemberRegister();
             Member member1 = new Member(001, "Nicolaj", "Nicolajvej 69", "Nicolaj@gmail.com", "78 98 72 63");
             MemberRegister.AddMember(member1);
             Member member2 = new Member(002, "Paw", "Pawgade 420", "Paw@gmail.com", "69 69 69 69");
@@ -46,6 +44,24 @@ namespace ClassLibSailClub
             }
 
             MemberRegister.DeleteMember(001);
+          
+          
+            EventPlanner planner = new EventPlanner();
+            Event e1 = planner.CreateEvent("Julefrokost", "12/12", "18:00", 50, "Hyggeaften i klubben");
+            Event e2 = planner.CreateEvent("Nytårsaften", "31/12", "21:00", 100, "Nytårsaften i klubben");
+            Event e3 = planner.CreateEvent("Bowling aften", "10/02", "20:00", 150, "Bowling aften i klubben");
+            Event e4 = planner.CreateEvent("Bingo aften", "14/02", "18:00", 50, "Bingo aften i klubben");
+            Member m1 = new Member(1, "Lars", "Adress", "Mail", "Phone");
+            e1.AddParticipant(m1);
+            e2.AddParticipant(m1);
+            e2.RemoveParticipant(m1);
+            planner.UpdateEvent(e1, "Julefrokost 2025", "13/12", "19:00", 75, "Opdateret beskrivelse");
+            
+            foreach (Event ev in planner.ReadAllEvents())
+            {
+                Console.WriteLine(ev.ToString());
+            }
+            
 
         }        
     }
