@@ -36,7 +36,7 @@ namespace ClassLibSailClub
 
         public void DeleteEvent(Event eventToDelete) 
         {
-            if (!EventList.Remove(eventToDelete))
+            if (!EventList.Remove(eventToDelete)) 
             {
                 throw new KeyNotFoundException("Eventet blev ikke fundet i kalenderen.");
             }
