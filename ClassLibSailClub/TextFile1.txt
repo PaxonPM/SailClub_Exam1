@@ -1,39 +1,9 @@
 ﻿
 
-Tilføje båd inheritance
+Opret en klasse der hedder BookingOverview
 
-eg. 
-
-is-a
--Boat
-	-Motorboat
-	-Sailboat
-	- paddlecraft
-gemmes i boat list for polymorphism
-
--person
-	-member
-	-admin
-	-instructor
-
--calendar entry
-	-Booking
-	-Event
-	kan gemme begge i list<calendar Entry> for polymorphism
-
-
-has-a
-
-masser af disse
-registre has a list/dict of ### objects
-
-
-Interfaces
-
-hvor giver det mening 
-
-måske et registre interface for crud metoder.
-
+skal ligne Calendar men laves for specifikt booking
+	metoder i calendar for event skal du også have i bookingOverview for bookings så du kan oprette, slette, updatere, læse bookings.
 
 
 

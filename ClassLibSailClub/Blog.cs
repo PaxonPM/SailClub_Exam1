@@ -13,9 +13,9 @@ namespace ClassLibSailClub
 
 
 
-        public void CreateBlogPost(Member member, string date, string time, string title, string body)
+        public void CreateBlogPost(Admin admin, string date, string time, string title, string body)
         {
-            if(member.IsAdmin)
+            if(admin.IsAdmin)
             {
                 BlogPost tempPost = new BlogPost(date, time, title, body);
                 BlogList.Add(tempPost);
@@ -23,7 +23,7 @@ namespace ClassLibSailClub
             }
             else
             {
-                throw new AccessViolationException($"ACCESS DENIED!\nThe member {member.Name} is not an admin");
+                throw new AccessViolationException($"ACCESS DENIED!\nThe member {admin.Name} is not an admin");
             }
         }
 
