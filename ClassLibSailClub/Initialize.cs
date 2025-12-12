@@ -26,12 +26,26 @@ namespace ClassLibSailClub
             Console.WriteLine(tempboat);
 
             MemberRegister MemberRegister = new MemberRegister();
-            MemberRegister.CreateMember(003, "Nicolaj", "Nicolajvej 69", "Nicolaj@gmail.com", "78 98 72 63", false);
-            MemberRegister.CreateMember(004, "Paw", "Pawgade 420", "Paw@gmail.com", "69 69 69 69", false);
-            MemberRegister.CreateMember(005, "Malinda", "Malinda Allé 47", "Malinda@gmail.com", "77 88 99 11 07", false);
-            MemberRegister.CreateMember(006, "Lejla", "Lejlastræde 32", "Lejla@gmail.com", " 59 03 77 91", false);
-            MemberRegister.CreateMember(007, "Lucas", "Maglegårdsvej 2", "Lucas@gmail.com", "52 30 92 01", true);
+            Member member1 = new Member(001, "Nicolaj", "Nicolajvej 69", "Nicolaj@gmail.com", "78 98 72 63");
+            MemberRegister.AddMember(member1);
+            Member member2 = new Member(002, "Paw", "Pawgade 420", "Paw@gmail.com", "69 69 69 69");
+            MemberRegister.AddMember(member2);
+            Member member3 = new Member(003, "Malinda", "Malinda Allé 47", "Malinda@gmail.com", "77 88 99 11 07");
+            MemberRegister.AddMember(member3);
+            Member member4 = new Member(004, "Lejla", "Lejlastræde 32", "Lejla@gmail.com", " 59 03 77 91");
+            MemberRegister.AddMember(member4);
+            Member member5 = new Member(005, "Lucas", "Maglegårdsvej 2", "Lucas@gmail.com", "52 30 92 01");
+            MemberRegister.AddMember(member5);
+            MemberRegister.GetMember(001);
 
-        }
+
+            foreach (Member mem in MemberRegister.PrintMembers().Values)
+            {
+                Console.WriteLine(mem);
+            }
+
+            MemberRegister.DeleteMember(001);
+
+        }        
     }
 }
