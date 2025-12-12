@@ -6,18 +6,27 @@ using System.Threading.Tasks;
 
 namespace ClassLibSailClub
 {
-    public class BoatReg 
+    public class BoatReg  : IBoatRegister
 
     {
         public List<Boat> Boats { get; private set; } = new List<Boat>();
        
        
-
-        public void AddBoat(string type, string model, int year, string name, int sailNum, string motorInf, double length)
+        // public Boat AddBoat(Boat tempBoat)
+        // Boats.Add(tempBoat)
+        public Boat AddBoat(Boat tempBoat)
+           
         {
-            Boats.Add(new Boat(type, model, year, name, sailNum, motorInf, length));
-            //Boat tempObj = new Boat(type, model, year, name, sailNum, motorInf, length);
-            //Boats.Add(tempObj);
+            if(tempBoat != null)
+            { 
+                Boats.Add(tempBoat);
+                return tempBoat;
+            }
+            
+            return null;
+            
+
+            
         }
 
         public Boat DelBoat(int sailNum)
@@ -60,13 +69,13 @@ namespace ClassLibSailClub
             return null;
         }
 
-        public Boat ReadBoat(int sailNum)
+        public string ReadBoat(int sailNum)
         {
             foreach (Boat boat in Boats)
             {
                 if (boat.SailNum == sailNum)
                 {
-                    return boat;
+                    return boat.ToString();
                 }
 
 
