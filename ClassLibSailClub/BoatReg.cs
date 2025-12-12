@@ -69,13 +69,13 @@ namespace ClassLibSailClub
             return null;
         }
 
-        public Boat ReadBoat(int sailNum)
+        public string ReadBoat(int sailNum)
         {
             foreach (Boat boat in Boats)
             {
                 if (boat.SailNum == sailNum)
                 {
-                    return boat;
+                    return boat.ToString();
                 }
 
 

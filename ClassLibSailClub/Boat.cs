@@ -30,6 +30,11 @@ namespace ClassLibSailClub
             Length = length;
         }
 
+        public override string ToString()
+        {
+            return $"Model: {Model} \n Year: {Year} \n Name: {Name} \n Sailnumber: {SailNum} \n Capacity: {Capacity} \n Length: {Length}";
+        }
+
 
 
     }
