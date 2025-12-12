@@ -11,16 +11,14 @@ public class BookingOverview
     }
 
     //Method
-    public Booking CreateOverview(string datoStart, string datoSlut, Member member, Boat boat)
+    public Booking CreateBooking(Booking booking)
     {
-        if (string.IsNullOrEmpty(datoStart))
+        if (string.IsNullOrEmpty(booking.DatoStart))
             throw new ArgumentException("The input was null or empty");
 
+        BookingList.Add(booking);
 
-        Booking bookingOverview = new Booking(datoStart, datoSlut, member, boat);
-        BookingList.Add(bookingOverview);
-
-        return bookingOverview;
+        return booking;
 
     }
 

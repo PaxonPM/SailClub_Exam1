@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ClassLibSailClub
 {
-    public class BoatReg  : IBoatRegister
+    public class BoatReg
 
     {
         public List<Boat> Boats { get; private set; } = new List<Boat>();
@@ -69,19 +69,24 @@ namespace ClassLibSailClub
             return null;
         }
 
-        public string ReadBoat(int sailNum)
+        public Boat ReadBoat(int sailNum)
         {
             foreach (Boat boat in Boats)
             {
                 if (boat.SailNum == sailNum)
                 {
-                    return boat.ToString();
+                    return boat;
                 }
 
 
             }
 
             return null;
+        }
+
+        public List<Boat> PrintBoats()
+        {
+            return Boats;
         }
     }
 }

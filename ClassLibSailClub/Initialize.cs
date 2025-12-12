@@ -22,28 +22,31 @@ namespace ClassLibSailClub
                 
             Console.WriteLine(BoatReg.ReadBoat(003));
             BoatReg.DelBoat(003);
-            tempboat = BoatReg.ReadBoat(002);
-            Console.WriteLine(tempboat);
+            foreach (Boat boat in BoatReg.PrintBoats())
+            {
+                Console.WriteLine(boat.ToString());
+            }
 
+            var memberRegisterObj = new MemberRegister();
             Member member1 = new Member(001, "Nicolaj", "Nicolajvej 69", "Nicolaj@gmail.com", "78 98 72 63");
-            MemberRegister.AddMember(member1);
+            memberRegisterObj.AddMember(member1);
             Member member2 = new Member(002, "Paw", "Pawgade 420", "Paw@gmail.com", "69 69 69 69");
-            MemberRegister.AddMember(member2);
+            memberRegisterObj.AddMember(member2);
             Member member3 = new Member(003, "Malinda", "Malinda Allé 47", "Malinda@gmail.com", "77 88 99 11 07");
-            MemberRegister.AddMember(member3);
+            memberRegisterObj.AddMember(member3);
             Member member4 = new Member(004, "Lejla", "Lejlastræde 32", "Lejla@gmail.com", " 59 03 77 91");
-            MemberRegister.AddMember(member4);
+            memberRegisterObj.AddMember(member4);
             Member member5 = new Member(005, "Lucas", "Maglegårdsvej 2", "Lucas@gmail.com", "52 30 92 01");
-            MemberRegister.AddMember(member5);
-            MemberRegister.GetMember(001);
+            memberRegisterObj.AddMember(member5);
+            memberRegisterObj.GetMember(001);
 
 
-            foreach (Member mem in MemberRegister.PrintMembers().Values)
+            foreach (Member mem in memberRegisterObj.PrintMembers().Values)
             {
                 Console.WriteLine(mem);
             }
 
-            MemberRegister.DeleteMember(001);
+            memberRegisterObj.DeleteMember(001);
           
           
             EventPlanner planner = new EventPlanner();
@@ -65,9 +68,13 @@ namespace ClassLibSailClub
 
            
             BookingOverview bookingOverview = new BookingOverview();
-            Booking b1 = bookingOverview.CreateOverview("01/03", "05/03", MemberRegister.ReadMember(003), BoatReg.ReadBoat(001));
-            Booking b2 = bookingOverview.CreateOverview("10/04", "12/04", MemberRegister.ReadMember(004), BoatReg.ReadBoat(002));
-            Booking b3 = bookingOverview.CreateOverview("20/05", "22/05", MemberRegister.ReadMember(005), BoatReg.ReadBoat(003));
+            Booking b1 = new Booking("01/03", "05/03", memberRegisterObj.GetMember(003), BoatReg.ReadBoat(001));
+            Booking b2 = new Booking("10/04", "12/04", memberRegisterObj.GetMember(004), BoatReg.ReadBoat(002));
+            Booking b3 = new Booking("20/05", "22/05", memberRegisterObj.GetMember(005), BoatReg.ReadBoat(003));
+            bookingOverview.CreateBooking(b1);
+            bookingOverview.CreateBooking(b2);
+            bookingOverview.CreateBooking(b3);
+
             bookingOverview.UpdateDato(b1, "02/03", "06/03");
             bookingOverview.DeleteBooking(b2);
             foreach (Booking booking in bookingOverview.ReadAll())
