@@ -4,12 +4,8 @@ namespace ClassLibSailClub;
 public class EventPlanner
 {
     //Liste til events
-    public List<Event> EventList { get; set; }
+    public List<Event> EventList { get; set; } = new List<Event>();
 
-    public EventPlanner() //constructor
-    {
-        EventList = new List<Event>();
-    }
 
     //Method
     public Event CreateEvent(string name, string date, string time, int price, string description)
@@ -23,15 +19,6 @@ public class EventPlanner
         return newEvent; // Hvis alt lykkes, returneres det oprettede event
         
     }
-
-    public void DeleteEvent(Event eventToDelete) 
-    {
-        if (!EventList.Remove(eventToDelete))
-        {
-            throw new KeyNotFoundException("Eventet blev ikke fundet i kalenderen.");
-        }
-    }
-
     public void UpdateEvent(Event eventToUpdate, string name, string date, string time, int price, string description)
     {
         if (!EventList.Contains(eventToUpdate))
@@ -44,9 +31,18 @@ public class EventPlanner
         eventToUpdate.Time = time;
         eventToUpdate.Price = price;
         eventToUpdate.Description = description;
-        
+
     }
-    public List<Event> ReadAllEvents()
+    public void DeleteEvent(Event eventToDelete) 
+    {
+        if (!EventList.Remove(eventToDelete))
+        {
+            throw new KeyNotFoundException("Eventet blev ikke fundet i kalenderen.");
+        }
+    }
+
+
+    public List<Event> PrintAllEvents()
 
     {
         return EventList;

@@ -16,11 +16,19 @@ namespace ClassLibSailClub
             NumberOfSails = numberOfSails;
             SailSizeM2 = sailSizeM2;
         }
-        
-         
-    }
-           
+        public override void Validate()
+        {
+            base.Validate();
+        }
 
+        public override bool TryValidate()
+        {
+            if (!base.TryValidate()) return false;
+            if (NumberOfSails < 1 || NumberOfSails > 5) return false;
+            if (SailSizeM2 < 5 || SailSizeM2 > 200) return false;
+            return true;
+        }
     }
+}
 
 

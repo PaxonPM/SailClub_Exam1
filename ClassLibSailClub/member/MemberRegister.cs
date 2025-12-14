@@ -7,42 +7,47 @@ using System.Threading.Tasks;
 
 namespace ClassLibSailClub
 {
-    public class MemberRegister
+    public class MemberRegister : IMemberRegister
     {
         public Dictionary<int, Member> Members { get; set; } = new();
 
-        public void AddMember(Member tempMember)
+        public Member CreateMember(Member tempMember)
         {
             if (Members.ContainsKey(tempMember.Id))
                 throw new ArgumentException($"Et medlem med ID {tempMember.Id} findes allerede!");
 
             Members[tempMember.Id] = tempMember;
+            return tempMember;
         }
 
-        public Member GetMember(int id)
+        public Member ReadMember(int id)
         {
+
             if (!Members.TryGetValue(id, out var medlem))
                 throw new KeyNotFoundException($"Medlem med ID {id} blev ikke fundet.");
-
             return medlem;
         }
 
-        public void UpdateMember(int id, string name, string address, string mail, string phone, DateTime signUpDate)
+        public Member UpdateMember(int id, string address, string mail, string phone)
         {
             if (!Members.TryGetValue(id, out var member))
                 throw new KeyNotFoundException($"Medlem med ID {id} blev ikke fundet.");
 
-            member.Name = name;
             member.Address = address;
             member.Mail = mail;
             member.Phone = phone;
 
+            return member;
+
         }
 
-        public void DeleteMember(int id)
+        public Member DeleteMember(int id)
         {
             if (!Members.Remove(id))
                 throw new KeyNotFoundException($"Medlem med ID {id} blev ikke fundet.");
+            var tempObj = Members[id];
+            Members.Remove(id);
+            return tempObj;
         }
 
         public Dictionary<int, Member> PrintMembers()
