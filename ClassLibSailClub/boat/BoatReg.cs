@@ -6,21 +6,21 @@ using System.Threading.Tasks;
 
 namespace ClassLibSailClub
 {
-    public class BoatReg
+    public class BoatReg : IBoatRegister
 
     {
         public List<Boat> Boats { get; private set; } = new List<Boat>();
        
         public Boat CreateBoat(Boat tempBoat)
-           
         {
-            if(tempBoat != null)
+            tempBoat.Validate();
+
+            if (!tempBoat.TryValidate())
             { 
-                Boats.Add(tempBoat);
-                return tempBoat;
+                return null;
             }
-            
-            return null;
+            Boats.Add(tempBoat);
+            return tempBoat;
         }
 
         public Boat ReadBoat(int sailNum)

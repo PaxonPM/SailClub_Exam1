@@ -7,16 +7,17 @@ using System.Threading.Tasks;
 
 namespace ClassLibSailClub
 {
-    public class MemberRegister
+    public class MemberRegister : IMemberRegister
     {
         public Dictionary<int, Member> Members { get; set; } = new();
 
-        public void CreateMember(Member tempMember)
+        public Member CreateMember(Member tempMember)
         {
             if (Members.ContainsKey(tempMember.Id))
                 throw new ArgumentException($"Et medlem med ID {tempMember.Id} findes allerede!");
 
             Members[tempMember.Id] = tempMember;
+            return tempMember;
         }
 
         public Member ReadMember(int id)
@@ -40,10 +41,13 @@ namespace ClassLibSailClub
 
         }
 
-        public void DeleteMember(int id)
+        public Member DeleteMember(int id)
         {
             if (!Members.Remove(id))
                 throw new KeyNotFoundException($"Medlem med ID {id} blev ikke fundet.");
+            var tempObj = Members[id];
+            Members.Remove(id);
+            return tempObj;
         }
 
         public Dictionary<int, Member> PrintMembers()

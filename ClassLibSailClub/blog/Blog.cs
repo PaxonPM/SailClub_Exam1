@@ -15,22 +15,23 @@ namespace ClassLibSailClub
 
         public BlogPost CreateBlogPost(Person person, string date, string time, string title, string body)
         {
-            if(person.IsAdmin)
-            {
-                BlogPost tempPost = new BlogPost(date, time, title, body);
-                BlogList.Add(tempPost);
-                
-                return tempPost;
-               
-            }
-            else
-            {
-                throw new AccessViolationException($"ACCESS DENIED!\nThe member {person.Name} is not an admin");
-            }
+            person.Validate();
+
+            BlogPost tempPost = new BlogPost(date, time, title, body);
+            tempPost.Validate();
+
+            if (!tempPost.TryValidate())
+                return null;
+            
+            BlogList.Add(tempPost);
+
+            return tempPost;
+           
         }
 
         public BlogPost DeleteBlogPost(string title)
         {
+           
             foreach (BlogPost post in BlogList)
             {
                 if (post.Title == title)
@@ -41,6 +42,7 @@ namespace ClassLibSailClub
             }
             return null;
         }
+
 
 
     }

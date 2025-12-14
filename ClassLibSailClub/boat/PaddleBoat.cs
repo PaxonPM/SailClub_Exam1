@@ -18,6 +18,19 @@ namespace ClassLibSailClub
             NumberOfPaddles = numberOfPaddles;
             
         }
+
+        public override void Validate()
+        {
+            base.Validate();
+        }
+
+        public override bool TryValidate()
+        {
+            if (!base.TryValidate()) return false;
+            if (NumberOfPaddles < 1 || NumberOfPaddles > 5  ) return false;
+            return true;
+
+        }
     }
     
 }
