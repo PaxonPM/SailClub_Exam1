@@ -11,7 +11,7 @@ namespace ClassLibSailClub
     {
         public Dictionary<int, Member> Members { get; set; } = new();
 
-        public void AddMember(Member tempMember)
+        public void CreateMember(Member tempMember)
         {
             if (Members.ContainsKey(tempMember.Id))
                 throw new ArgumentException($"Et medlem med ID {tempMember.Id} findes allerede!");
@@ -19,23 +19,24 @@ namespace ClassLibSailClub
             Members[tempMember.Id] = tempMember;
         }
 
-        public Member GetMember(int id)
+        public Member ReadMember(int id)
         {
+
             if (!Members.TryGetValue(id, out var medlem))
                 throw new KeyNotFoundException($"Medlem med ID {id} blev ikke fundet.");
-
             return medlem;
         }
 
-        public void UpdateMember(int id, string name, string address, string mail, string phone, DateTime signUpDate)
+        public Member UpdateMember(int id, string address, string mail, string phone)
         {
             if (!Members.TryGetValue(id, out var member))
                 throw new KeyNotFoundException($"Medlem med ID {id} blev ikke fundet.");
 
-            member.Name = name;
             member.Address = address;
             member.Mail = mail;
             member.Phone = phone;
+
+            return member;
 
         }
 

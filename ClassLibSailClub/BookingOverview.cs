@@ -3,12 +3,7 @@ namespace ClassLibSailClub;
 public class BookingOverview
 {
 
-    public List<Booking> BookingList { get; set; } //Lister til booking og events
-
-    public BookingOverview() //constructor
-    {
-        BookingList = new List<Booking>();
-    }
+    public List<Booking> BookingList { get; set; } = new List<Booking>();//Lister til booking og events
 
     //Method
     public Booking CreateBooking(Booking booking)
@@ -21,24 +16,25 @@ public class BookingOverview
         return booking;
 
     }
+    public Booking UpdateDato(Booking booking, string nyStart, string nySlut)
+    {
+        if (booking == null)
+            throw new ArgumentException("Booking må ikke være null.");
 
-    public void DeleteBooking(Booking bookingToDelete)
+        return booking;
+    }
+    public Booking DeleteBooking(Booking bookingToDelete)
     {
         if (!BookingList.Remove(bookingToDelete))
         {
             throw new KeyNotFoundException("bookingen blev ikke fundet i kalenderen.");
         }
-    }
-    
-    public string UpdateDato(Booking booking, string nyStart, string nySlut)
-    {
-        if (booking == null)
-            throw new ArgumentException("Booking må ikke være null.");
 
-        return booking.UpdateDato(nyStart, nySlut);
+        return bookingToDelete;
     }
     
-    public List<Booking> ReadAll()
+    
+    public List<Booking> PrintAll()
     {
         return BookingList;
     }
