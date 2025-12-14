@@ -17,10 +17,8 @@ namespace ClassLibSailClub
             SailSizeM2 = sailSizeM2;
         }
         
-         
     }
            
-
-    }
+}
 
 

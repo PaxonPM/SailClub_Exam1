@@ -17,15 +17,8 @@ public class MaintenanceRecord
     private int nextId;
 
     public EnumStatus Status { get; private set; } = EnumStatus.Ready;
-    public Dictionary<int, string> DamageLog { get; }
-    public List<string> MaintenanceLog { get; }
-
-
-    public MaintenanceRecord()
-    {
-        DamageLog = new Dictionary<int, string>();
-        MaintenanceLog = new List<string>();
-    }
+    public Dictionary<int, string> DamageLog { get; } = new Dictionary<int, string>();
+    public List<string> MaintenanceLog { get; } = new List<string>();
 
 
     public int AddDamage(string damage)

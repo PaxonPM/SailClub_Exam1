@@ -11,10 +11,7 @@ namespace ClassLibSailClub
     {
         public List<Boat> Boats { get; private set; } = new List<Boat>();
        
-       
-        // public Boat AddBoat(Boat tempBoat)
-        // Boats.Add(tempBoat)
-        public Boat AddBoat(Boat tempBoat)
+        public Boat CreateBoat(Boat tempBoat)
            
         {
             if(tempBoat != null)
@@ -24,25 +21,21 @@ namespace ClassLibSailClub
             }
             
             return null;
-            
-
-            
         }
 
-        public Boat DelBoat(int sailNum)
+        public Boat ReadBoat(int sailNum)
         {
             foreach (Boat boat in Boats)
             {
-                    if (boat.SailNum == sailNum)
-                    {
-                        Boats.Remove(boat);
-                        return boat;
-                    }
+                if (boat.SailNum == sailNum)
+                {
+                    return boat;
+                }
             }
+
             return null;
         }
-
-        public Boat UpdDam(int sailNum, string damage)
+        public Boat UpdateBoatDamage(int sailNum, string damage)
         {
             foreach (Boat boat in Boats)
             {
@@ -55,7 +48,7 @@ namespace ClassLibSailClub
             return null;
         }
 
-        public Boat UpdateRepair(int sailNum, int damageLogId)
+        public Boat UpdateBoatRepair(int sailNum, int damageLogId)
         {
             foreach (Boat boat in Boats)
             {
@@ -68,19 +61,16 @@ namespace ClassLibSailClub
             }
             return null;
         }
-
-        public Boat ReadBoat(int sailNum)
+        public Boat DeleteBoat(int sailNum)
         {
             foreach (Boat boat in Boats)
             {
-                if (boat.SailNum == sailNum)
-                {
-                    return boat;
-                }
-
-
+                    if (boat.SailNum == sailNum)
+                    {
+                        Boats.Remove(boat);
+                        return boat;
+                    }
             }
-
             return null;
         }
 
@@ -88,5 +78,6 @@ namespace ClassLibSailClub
         {
             return Boats;
         }
+
     }
 }

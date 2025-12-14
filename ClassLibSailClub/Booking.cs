@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace ClassLibSailClub
+﻿namespace ClassLibSailClub
 
 {
     public class Booking // propperties
@@ -22,7 +16,7 @@ namespace ClassLibSailClub
             Boat = boat;
         }
         
-        public string UpdateDato(string nyStart, string nySlut)
+        public string UpdateDate(string nyStart, string nySlut)
         {
             if (nyStart == null || nySlut == null)
                     throw new Exception();
