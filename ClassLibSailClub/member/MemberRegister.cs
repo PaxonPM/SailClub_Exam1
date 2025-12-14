@@ -7,45 +7,52 @@ using System.Threading.Tasks;
 
 namespace ClassLibSailClub
 {
-    public class MemberRegister
+    public class MemberRegister : IMemberRegister
     {
-        public Dictionary<int, Member> Members { get; set; } = new();
+        public Dictionary<int, Person> Members { get; set; } = new();
 
-        public void AddMember(Member tempMember)
+        public Person CreateMember(Person tempMember)
         {
             if (Members.ContainsKey(tempMember.Id))
                 throw new ArgumentException($"Et medlem med ID {tempMember.Id} findes allerede!");
 
             Members[tempMember.Id] = tempMember;
+            return tempMember;
         }
 
-        public Member GetMember(int id)
+        public Person ReadMember(int id)
         {
+
             if (!Members.TryGetValue(id, out var medlem))
                 throw new KeyNotFoundException($"Medlem med ID {id} blev ikke fundet.");
-
             return medlem;
         }
 
-        public void UpdateMember(int id, string name, string address, string mail, string phone, DateTime signUpDate)
+        public Person UpdateMember(int id, string address, string mail, string phone)
         {
             if (!Members.TryGetValue(id, out var member))
                 throw new KeyNotFoundException($"Medlem med ID {id} blev ikke fundet.");
 
-            member.Name = name;
             member.Address = address;
             member.Mail = mail;
             member.Phone = phone;
 
+            return member;
+
         }
 
-        public void DeleteMember(int id)
+        public Person DeleteMember(int id)
         {
-            if (!Members.Remove(id))
+            if (!Members.TryGetValue(id, out var member))
+            {
                 throw new KeyNotFoundException($"Medlem med ID {id} blev ikke fundet.");
+            }
+
+            Members.Remove(id);
+            return member;
         }
 
-        public Dictionary<int, Member> PrintMembers()
+        public Dictionary<int, Person> PrintMembers()
         {
             if (Members.Count == 0)
                 throw new ArgumentNullException("Ingen medlemmer i systemet.");
