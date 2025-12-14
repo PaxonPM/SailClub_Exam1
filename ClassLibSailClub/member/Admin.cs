@@ -15,11 +15,12 @@ namespace ClassLibSailClub
         {
             IsAdmin = true;
             AdminSince = DateTime.Now;
+            Role = "Administrator";
         }
 
         public override string ToString()
         {
-            return $"ID: {Id}, Name: {Name}, Address: {Address}, Mail: {Mail}, Phone: {Phone}, Sign up date: {AdminSince}";
+            return $"{base.ToString()}, Admin Signupdate: {AdminSince}";
         }
     }
 }

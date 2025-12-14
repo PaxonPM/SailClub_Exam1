@@ -14,7 +14,7 @@ namespace ClassLibSailClub
         public string Time { get; set; }
         public int Price { get; set; }
         public string Description { get; set; }
-        public List<Member> ParticipantList { get; set; }
+        public List<Person> ParticipantList { get; set; } = new List<Person>();
         public Event(string name, string date, string time, int price, string description)
 
         {
@@ -23,10 +23,9 @@ namespace ClassLibSailClub
             Time = time;
             Price = price;
             Description = description;
-            ParticipantList = new List<Member>();
         }
 
-        public Member AddParticipant(Member Participant) //Method
+        public Person AddParticipant(Person Participant) //Method
         {
 
             if (Participant == null)
@@ -37,7 +36,7 @@ namespace ClassLibSailClub
 
         }
 
-        public Member RemoveParticipant(Member participant)
+        public Person RemoveParticipant(Person participant)
         {
             if (participant == null)
                 throw new ArgumentException("Argument er null i Remove deltager");

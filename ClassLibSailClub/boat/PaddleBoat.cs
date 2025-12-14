@@ -18,7 +18,10 @@ namespace ClassLibSailClub
             NumberOfPaddles = numberOfPaddles;
             
         }
-
+        public override string ToString()
+        {
+            return $"{base.ToString()} \n Is Inflatable: {IsInflatable} \n Number of Paddles: {NumberOfPaddles}";
+        }
         public override void Validate()
         {
             base.Validate();

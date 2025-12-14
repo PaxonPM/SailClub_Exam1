@@ -16,6 +16,10 @@ namespace ClassLibSailClub
             NumberOfSails = numberOfSails;
             SailSizeM2 = sailSizeM2;
         }
+        public override string ToString()
+        {
+            return $"{base.ToString()} \n Number of Sails: {NumberOfSails} \n Sail Size (m2): {SailSizeM2}";
+        }
         public override void Validate()
         {
             base.Validate();

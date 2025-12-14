@@ -17,7 +17,10 @@ namespace ClassLibSailClub
             MotorInf = motorInf;
             HorsePower = horsePower;
         }
-
+        public override string ToString()
+        {
+            return $"{base.ToString()} \n Motor Information: {MotorInf} \n Horse Power: {HorsePower}";
+        }
         public override void Validate()
         {
             base.Validate();

@@ -15,6 +15,8 @@ namespace ClassLibSailClub
         public string Address { get; set; }
         public string Mail { get; set; }
         public string Phone { get; set; }
+        public string Role { get; protected set; } = "undefined";
+
         public bool IsAdmin { get; protected set; } = false;
 
         public Person(int id, string name, string address, string mail, string phone)
@@ -24,6 +26,11 @@ namespace ClassLibSailClub
             Address = address;
             Mail = mail;
             Phone = phone;
+        }
+
+        public override string ToString()
+        {
+            return $"ID: {Id}, Name: {Name}, Address: {Address}, Mail: {Mail}, Phone: {Phone}, Role: {Role}";
         }
 
         public void Validate()

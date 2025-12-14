@@ -5,10 +5,10 @@
     {
         public string DatoStart { get; set; }
         public string DatoSlut { get; set; }
-        public Member Member { get; set; }
+        public Person Member { get; set; }
         public Boat Boat { get; set; }
 
-        public Booking(string datoStart, string datoSlut, Member member, Boat boat)
+        public Booking(string datoStart, string datoSlut, Person member, Boat boat)
         {
             DatoStart = datoStart;
             DatoSlut = datoSlut;

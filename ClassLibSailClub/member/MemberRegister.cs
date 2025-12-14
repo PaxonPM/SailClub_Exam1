@@ -9,9 +9,9 @@ namespace ClassLibSailClub
 {
     public class MemberRegister : IMemberRegister
     {
-        public Dictionary<int, Member> Members { get; set; } = new();
+        public Dictionary<int, Person> Members { get; set; } = new();
 
-        public Member CreateMember(Member tempMember)
+        public Person CreateMember(Person tempMember)
         {
             if (Members.ContainsKey(tempMember.Id))
                 throw new ArgumentException($"Et medlem med ID {tempMember.Id} findes allerede!");
@@ -20,7 +20,7 @@ namespace ClassLibSailClub
             return tempMember;
         }
 
-        public Member ReadMember(int id)
+        public Person ReadMember(int id)
         {
 
             if (!Members.TryGetValue(id, out var medlem))
@@ -28,7 +28,7 @@ namespace ClassLibSailClub
             return medlem;
         }
 
-        public Member UpdateMember(int id, string address, string mail, string phone)
+        public Person UpdateMember(int id, string address, string mail, string phone)
         {
             if (!Members.TryGetValue(id, out var member))
                 throw new KeyNotFoundException($"Medlem med ID {id} blev ikke fundet.");
@@ -41,16 +41,18 @@ namespace ClassLibSailClub
 
         }
 
-        public Member DeleteMember(int id)
+        public Person DeleteMember(int id)
         {
-            if (!Members.Remove(id))
+            if (!Members.TryGetValue(id, out var member))
+            {
                 throw new KeyNotFoundException($"Medlem med ID {id} blev ikke fundet.");
-            var tempObj = Members[id];
+            }
+
             Members.Remove(id);
-            return tempObj;
+            return member;
         }
 
-        public Dictionary<int, Member> PrintMembers()
+        public Dictionary<int, Person> PrintMembers()
         {
             if (Members.Count == 0)
                 throw new ArgumentNullException("Ingen medlemmer i systemet.");

@@ -8,11 +8,11 @@ namespace ClassLibSailClub
 {
     public interface IMemberRegister
     {
-        Dictionary<int, Member> Members { get; set; }
-        Member CreateMember(Member tempMember);
-        Member ReadMember(int id);
-        Member UpdateMember(int id, string address, string mail, string phone);
-        Member DeleteMember(int id);
-        Dictionary<int, Member> PrintMembers();
+        Dictionary<int, Person> Members { get; set; }
+        Person CreateMember(Person tempMember);
+        Person ReadMember(int id);
+        Person UpdateMember(int id, string address, string mail, string phone);
+        Person DeleteMember(int id);
+        Dictionary<int, Person> PrintMembers();
     }
 }
