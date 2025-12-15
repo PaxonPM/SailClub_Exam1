@@ -10,11 +10,11 @@ namespace ClassLibSailClub
     {
         List<Boat> Boats { get; }
 
-        Boat CreateBoat(Boat tempBoat);
-        Boat ReadBoat(int sailNum);
-        Boat UpdateBoatDamage(int sailNum, string damage);
-        Boat UpdateBoatRepair(int sailNum, int damageLogId);
-        Boat DeleteBoat(int sailNum);
+        Boat? CreateBoat(Boat tempBoat);
+        Boat? ReadBoat(int sailNum);
+        Boat? UpdateBoatDamage(int sailNum, string damage);
+        Boat? UpdateBoatRepair(int sailNum, int damageLogId);
+        Boat? DeleteBoat(int sailNum);
 
     }
 }

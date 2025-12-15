@@ -20,7 +20,7 @@ namespace ClassLibSailClub
             BlogPost tempPost = new BlogPost(date, time, title, body);
             tempPost.Validate();
 
-            if (!tempPost.TryValidate())
+            if (!tempPost.RoutineValidate())
                 return null;
             
             BlogList.Add(tempPost);

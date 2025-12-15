@@ -25,9 +25,9 @@ namespace ClassLibSailClub
             base.Validate();
         }
 
-        public override bool TryValidate()
+        public override bool RoutineValidate()
         {
-            if (!base.TryValidate()) return false;
+            if (!base.RoutineValidate()) return false;
             if (NumberOfSails < 1 || NumberOfSails > 5) return false;
             if (SailSizeM2 < 5 || SailSizeM2 > 200) return false;
             return true;

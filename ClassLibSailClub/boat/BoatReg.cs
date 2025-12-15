@@ -11,11 +11,11 @@ namespace ClassLibSailClub
     {
         public List<Boat> Boats { get; private set; } = new List<Boat>();
        
-        public Boat CreateBoat(Boat tempBoat)
+        public Boat? CreateBoat(Boat tempBoat)
         {
             tempBoat.Validate();
 
-            if (!tempBoat.TryValidate())
+            if (!tempBoat.RoutineValidate())
             { 
                 return null;
             }
@@ -23,7 +23,7 @@ namespace ClassLibSailClub
             return tempBoat;
         }
 
-        public Boat ReadBoat(int sailNum)
+        public Boat? ReadBoat(int sailNum)
         {
             foreach (Boat boat in Boats)
             {
@@ -35,7 +35,7 @@ namespace ClassLibSailClub
 
             return null;
         }
-        public Boat UpdateBoatDamage(int sailNum, string damage)
+        public Boat? UpdateBoatDamage(int sailNum, string damage)
         {
             foreach (Boat boat in Boats)
             {
@@ -48,7 +48,7 @@ namespace ClassLibSailClub
             return null;
         }
 
-        public Boat UpdateBoatRepair(int sailNum, int damageLogId)
+        public Boat? UpdateBoatRepair(int sailNum, int damageLogId)
         {
             foreach (Boat boat in Boats)
             {
@@ -61,7 +61,7 @@ namespace ClassLibSailClub
             }
             return null;
         }
-        public Boat DeleteBoat(int sailNum)
+        public Boat? DeleteBoat(int sailNum)
         {
             foreach (Boat boat in Boats)
             {

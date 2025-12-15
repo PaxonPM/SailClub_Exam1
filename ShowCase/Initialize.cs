@@ -10,32 +10,49 @@ public static class Initialize
 {
     public static void Start()
     {
-
+        
+        #region Boat
+        
         // boat showcase;
         Console.WriteLine("-------------------------------------------------------\nBOATSHOWCASE");
         Console.WriteLine($"Initializing Boat Registration...");
         BoatReg BoatReg = new BoatReg();
         Console.WriteLine($"Creating boat objects...");
-        Boat boat1 = new PaddleBoat("59 north", 1980,"Skilsmissebåden", 01, 4, 4, false, 2);
-        Boat boat2 = new SailBoat("Laser 200", 1940, "Tøsebåden", 02, 2, 1, 10, 10);
-        Boat boat3 = new MotorBoat("Stingray", 1969, "Måneskin", 03, 26, 30, "Yamaha V8, Diesel",300 );
-        Boat boat4 = new SailBoat("Træskib", 1492, "Santa Maria", 04, 40, 64.3, 4, 300);
-
+        Boat[] boats = new Boat[5];
+        boats[0] = new PaddleBoat("59 north", 1980, "Skilsmissebåden", 01, 4, 4, false, 2);
+        boats[1] = new SailBoat("Laser 200", 1940, "Tøsebåden", 02, 2, 1, 10, 10);
+        boats[2] = new MotorBoat("Stingray", 1969, "Måneskin", 03, 26, 30, "Yamaha V8, Diesel",300 ); //
+        boats[3] = new SailBoat("", 1492, "Santa Maria", 04, 40, 64.3, 4, 300);
+        boats[4] = new SailBoat("ErrorBoat", 1492, "Errorcatch", 04, 40, 64.3, 0, 300);
         Console.WriteLine("Done creating boat objects.\nNow Adding Boat objects to boatregister");
-        BoatReg.CreateBoat(boat1);
-        BoatReg.CreateBoat(boat2);
-        BoatReg.CreateBoat(boat3);
-        BoatReg.CreateBoat(boat4);
-        Console.WriteLine("Done adding boats to register.\nNow Reading Boat objects from boatregister");
 
-        Console.WriteLine($"Read boat:\n{BoatReg.ReadBoat(3).ToString()}");
-        Console.WriteLine($"Deleted boat:\n{BoatReg.DeleteBoat(3).ToString()}");
+        foreach (Boat b in boats)
+        {
+            TryAddBoat(BoatReg, b);
+        }
+
+        Console.WriteLine("Done adding boats to register.\nNow Reading Boat objects from boatregister");
+        Boat? readBoat = BoatReg.ReadBoat(3);
+        if (readBoat != null)
+            Console.WriteLine($"Read boat:\n{readBoat.ToString()}");
+        else
+            Console.WriteLine("Read boat:\nBoat not found.");
+        
+        readBoat = BoatReg.DeleteBoat(1);
+        if (readBoat != null)
+            Console.WriteLine($"Deleted boat:\n{readBoat.ToString()}");
+        else
+            Console.WriteLine("Boat not found.");
+
         Console.WriteLine("Printing all boats in list:");
         foreach (Boat boat in BoatReg.PrintBoats())
         {
             Console.WriteLine(boat.ToString());
         }
+        #endregion Boat
         ////////////////////////////////////////////////
+        ///
+        #region Member
         // member showcase
         Console.WriteLine("\n\n-------------------------------------------------------\nMEMBER SHOWCASE");
 
@@ -43,24 +60,30 @@ public static class Initialize
         Console.WriteLine($"\n\nInitializing Member Registration...");
         var memberRegisterObj = new MemberRegister();
         Console.WriteLine($"Creating member objects...");
-        Person member1 = new Member(1, "Nicolaj", "Nicolajvej 69", "Nicolaj@gmail.com", "78 98 72 63");
-        Person member2 = new Member(2, "Paw", "Pawgade 420", "Paw@gmail.com", "69 69 69 69");
-        Person member3 = new Member(3, "Malinda", "Malinda Allé 47", "Malinda@gmail.com", "77 88 99 11 07");
-        Person member4 = new Member(4, "Lejla", "Lejlastræde 32", "Lejla@gmail.com", " 59 03 77 91");
-        Person member5 = new Member(5, "Lucas", "Maglegårdsvej 2", "Lucas@gmail.com", "52 30 92 01");
-        Person admin1 = new Admin(6, "Bossman", "bossroad 1", "Bossman@gmail.com", "52 30 92 01");
+
+        Person[] members = new Person[8];
+        members[0] = new Member(1, "Nicolaj", "Nicolajvej 69", "Nicolaj@gmail.com", "78 98 72 63");
+        members[1] = new Member(2, "Paw", "Pawgade 420", "Paw@gmail.com", "69 69 69 69");
+        members[2] = new Member(2, "Paw", "Pawgade 420", "Paw@gmail.com", "69 69 69 69");
+        members[3] = new Member(3, "Malinda", "Malinda Allé 47", "Malinda@gmail.com", "77 88 99 11 07");
+        members[4] = new Member(4, "Lejla", "Lejlastræde 32", "Lejla@gmail.com", " 59 03 77 91");
+        members[5] = new Member(5, "Lucas", "Maglegårdsvej 2", "Lucas@gmail.com", "52 30 92 01");
+        members[6] = new Member(6, "Lucas", "Maglegårdsvej 2", "Lucas@gmail.com", "52 30 92 01"); // error catch
+        members[7] = new Admin(6, "AdminGuy", "Adminstreet 5", "Bossman@gmail.com", "52 30 92 01");
 
 
         Console.WriteLine("Done creating member objects.\nNow Adding Member objects to memberregister");
-        memberRegisterObj.CreateMember(member1);
-        memberRegisterObj.CreateMember(member2);
-        memberRegisterObj.CreateMember(member3);
-        memberRegisterObj.CreateMember(member4);
-        memberRegisterObj.CreateMember(member5);
-        memberRegisterObj.CreateMember(admin1);
+
+        foreach (Person p in members)
+        {
+            TryAddPerson(memberRegisterObj, p);
+        }
+        
+
+
 
         Console.WriteLine("Done adding members to register.\nNow Reading Member objects from memberregister");
-        Console.WriteLine($"Read member:\n{memberRegisterObj.ReadMember(1).ToString()}");
+        Console.WriteLine($"Read member:\n{memberRegisterObj.ReadMember(2).ToString()}");
         Console.WriteLine($"Deleted member:\n{memberRegisterObj.DeleteMember(1).ToString()}");
         
         Console.WriteLine("Printing all members in list:");
@@ -68,6 +91,7 @@ public static class Initialize
         {
             Console.WriteLine(mem);
         }
+        #endregion Member
         ///////////////////////////////////////////////
         /// Event showcase
         Console.WriteLine("\n\n-------------------------------------------------------\nEVENT SHOWCASE");
@@ -87,12 +111,12 @@ public static class Initialize
         planner.CreateEvent(e4);
 
         Console.WriteLine("Adding participants to events...");
-        e1.AddParticipant(member4);
-        e2.AddParticipant(member5);
-        e2.AddParticipant(member3);
-        e2.AddParticipant(member2);
+        e1.AddParticipant(members[3]);
+        e2.AddParticipant(members[4]);
+        e2.AddParticipant(members[2]);
+        e2.AddParticipant(members[1]);
         Console.WriteLine("Done adding participants.\nNow updating and removing participants and events...");
-        e2.RemoveParticipant(member3);
+        e2.RemoveParticipant(members[2]);
         planner.UpdateEvent(e1, "Julefrokost 2025", "13/12", "19:00", 75, "Opdateret beskrivelse");
 
         Console.WriteLine("Done updating and removing participants and events.\nNow printing all events in eventplanner:");
@@ -128,5 +152,33 @@ public static class Initialize
                 
 
     }
+    private static void TryAddBoat(BoatReg reg, Boat b)
+    {
+        string errorMsg = "Error(constraints): Boat creation failed due to validation errors.";
+        string successMsg = "Boat creation succeeded for " + b.Name;
+        try
+        {
+            Console.WriteLine(reg.CreateBoat(b) == null ? errorMsg : successMsg);
+        }
+        catch (ArgumentException ex)
+        {
+            Console.WriteLine($"Error(exception): {ex.Message}");
+        }
+    }
+    private static void TryAddPerson(MemberRegister reg, Person p)
+    {
+        
+        try
+        {
+            reg.CreateMember(p);
+            Console.WriteLine($"Member {p.Id} added successfully.");
+            
+        }
+        catch (ArgumentException ex)
+        {
+            Console.WriteLine($"Error(exception): {ex.Message}");
+        }
+    }
+
 }
 

@@ -35,7 +35,7 @@ namespace ClassLibSailClub
 
         }
 
-        public bool TryValidate()
+        public bool RoutineValidate()
         {
             if (Title.Length > 30) return false;
             if (Body.Length < 10) return false;

@@ -46,7 +46,7 @@ namespace ClassLibSailClub
 
         }
 
-        public bool TryValidate()
+        public bool RoutineValidate()
         {
             if (Phone.Length == 8) return false;
 

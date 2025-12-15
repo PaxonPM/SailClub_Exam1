@@ -35,9 +35,9 @@ namespace ClassLibSailClub
             }
         }
 
-        public override bool TryValidate()
+        public override bool RoutineValidate()
         {
-            if (!base.TryValidate()) return false;
+            if (!base.RoutineValidate()) return false;
             if (HorsePower > 500) return false;
             if (MotorInf.Length < 5) return false;
             return true;

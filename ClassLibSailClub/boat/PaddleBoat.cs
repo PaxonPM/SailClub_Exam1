@@ -27,9 +27,9 @@ namespace ClassLibSailClub
             base.Validate();
         }
 
-        public override bool TryValidate()
+        public override bool RoutineValidate()
         {
-            if (!base.TryValidate()) return false;
+            if (!base.RoutineValidate()) return false;
             if (NumberOfPaddles < 1 || NumberOfPaddles > 5  ) return false;
             return true;
 

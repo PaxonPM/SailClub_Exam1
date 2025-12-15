@@ -60,7 +60,7 @@ namespace ClassLibSailClub
             }
         }
 
-        public virtual bool TryValidate()
+        public virtual bool RoutineValidate()
         {
             if (Year < 1600 || Year > DateTime.Now.Year) return false;
             if (SailNum <= 0) return false;

@@ -9,7 +9,7 @@ namespace ClassLibSailClub
     public interface IValidate
     {
         void Validate(); // exception baseret validerring  system fejl, programmet ikke må fortsætte
-        bool TryValidate(); // bool valdering for routine checks
+        bool RoutineValidate(); // bool valdering for routine checks
 
     }
 }
