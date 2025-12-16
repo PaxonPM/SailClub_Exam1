@@ -8,28 +8,31 @@ namespace ClassLibSailClub
 {
     public class BlogPost : IValidate
     {
-        public string Date { get; }
+        public DateTime Date { get; }
         public string Time { get; }
         public string Title { get; }
         public string Body { get; set; } 
 
-        public BlogPost(string date, string time, string title, string body)
+        public BlogPost(string title, string body)
         {
-            Date = date;
-            Time = time;
+            Date = DateTime.Now;
+            Time = DateTime.Now.ToString("HH:mm");
             Title = title;
             Body = body;
+        }
+
+        public override string ToString()
+        {
+            return $"\n{Title} - Created at {Date}\n{Body}";
         }
 
         //implemtering af IValidate
         public void Validate()
         {
-            if (string.IsNullOrWhiteSpace(Date))
+            if (Date == default)
                 throw new ArgumentException("Date is required.");
-            if (string.IsNullOrWhiteSpace(Time))
-                throw new ArgumentException("Time is required.");
             if (string.IsNullOrWhiteSpace(Title))
-                throw new ArgumentException("Time is required.");
+                throw new ArgumentException("Title is required.");
             if (string.IsNullOrWhiteSpace(Body))
                 throw new ArgumentException("Body is required.");
 

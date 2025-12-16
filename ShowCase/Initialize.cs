@@ -93,6 +93,7 @@ public static class Initialize
         }
         #endregion Member
         ///////////////////////////////////////////////
+        #region Event
         /// Event showcase
         Console.WriteLine("\n\n-------------------------------------------------------\nEVENT SHOWCASE");
         Console.WriteLine("\n\nInitializing Event Registration...");
@@ -125,8 +126,9 @@ public static class Initialize
         {
             Console.WriteLine(ev.ToString());
         }
+        #endregion Event
         ///////////////////////////////////////////////
-        
+        #region Booking
         // Booking showcase
         Console.WriteLine("\n\n-------------------------------------------------------\nBOOKING SHOWCASE");
         Console.WriteLine("Creating booking register amd booking objects");
@@ -149,9 +151,40 @@ public static class Initialize
         {
             Console.WriteLine(booking.ToString()); 
         }
-                
+        #endregion Booking
+        //////////////////////////////////////////////
+        ///
+         #region Blog
+        // Blog post showcase
+
+        Console.WriteLine("\n\n-------------------------------------------------------\nBLOG POST SHOWCASE");
+        Console.WriteLine("Creating blog post register and blog post objects");
+        Blog blogRegister = new Blog();
+        BlogPost[] BlogReg = new BlogPost[5];
+
+        BlogReg[0] = new BlogPost("Velkommen til SailClub", "Dette er den første blogpost på SailClub!");
+        BlogReg[1] = new BlogPost("Sommerfest 2024", "Husk at tilmelde jer til sommerfesten i år!");
+        BlogReg[2] = new BlogPost("Nye både ankommet", "Vi har netop modtaget flere nye både til klubben. Kom forbi og se dem!");
+        BlogReg[3] = new BlogPost("Vinterevent", "Tilmeld dig vores vinterevent og nyd en sjov aften med aktiviteter!");
+        BlogReg[4] = new BlogPost("Gode råd til sejlads", "Få tips til en sikker og sjov sejladsoplevelse.");
+        
+        Console.WriteLine("Done creating blog post objects.\nNow Adding Blog Post objects to blog post register");
+        foreach (BlogPost bp in BlogReg)
+        {
+            TryAddBlog(blogRegister, bp, members[7]); // Admin user creating blog posts
+        }
+        Console.WriteLine("Done adding blog posts to register.\nNow Deleting a blog post from blog post register");
+        blogRegister.DeleteBlogPost(members[7], "Vinterevent");
+        Console.WriteLine("Printing all blog posts in blog post register:");
+        foreach (BlogPost post in BlogReg)
+        {
+            Console.WriteLine(post.ToString());
+        }
+
+        #endregion Blog 
 
     }
+
     private static void TryAddBoat(BoatReg reg, Boat b)
     {
         string errorMsg = "Error(constraints): Boat creation failed due to validation errors.";
@@ -173,6 +206,20 @@ public static class Initialize
             reg.CreateMember(p);
             Console.WriteLine($"Member {p.Id} added successfully.");
             
+        }
+        catch (ArgumentException ex)
+        {
+            Console.WriteLine($"Error(exception): {ex.Message}");
+        }
+    }
+
+    private static void TryAddBlog(Blog blog, BlogPost bp, Person person)
+    {
+        string errorMsg = "Error(constraints): Blog creation failed due to validation errors.";
+        string successMsg = "Blog creation succeeded for " + bp.Title;
+        try
+        {
+            Console.WriteLine(blog.CreateBlogPost(person, bp) == null ? errorMsg : successMsg);
         }
         catch (ArgumentException ex)
         {

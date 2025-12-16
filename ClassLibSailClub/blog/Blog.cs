@@ -13,25 +13,32 @@ namespace ClassLibSailClub
 
 
 
-        public BlogPost CreateBlogPost(Person person, string date, string time, string title, string body)
+        public BlogPost CreateBlogPost(Person person, BlogPost post)
         {
             person.Validate();
 
-            BlogPost tempPost = new BlogPost(date, time, title, body);
-            tempPost.Validate();
-
-            if (!tempPost.RoutineValidate())
-                return null;
             
-            BlogList.Add(tempPost);
+            post.Validate();
 
-            return tempPost;
+            if (!person.IsAdmin)
+                throw new ArgumentException("Only admins can create blog posts.");
+
+            if (!post.RoutineValidate())
+                return null;
+
+            BlogList.Add(post);
+
+            return post;
            
         }
 
-        public BlogPost DeleteBlogPost(string title)
+        public BlogPost DeleteBlogPost(Person person, string title)
         {
-           
+            person.Validate();
+
+            if (!person.IsAdmin)
+                throw new ArgumentException("Only admins can delete blog posts.");
+
             foreach (BlogPost post in BlogList)
             {
                 if (post.Title == title)
@@ -42,6 +49,9 @@ namespace ClassLibSailClub
             }
             return null;
         }
+
+
+        
 
 
 
