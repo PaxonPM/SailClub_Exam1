@@ -32,6 +32,19 @@ namespace ClassLibSailClub
            
         }
 
+        public BlogPost ReadBlogPost(string title)
+        {
+            foreach (BlogPost post in BlogList)
+            {
+                if (post.Title == title)
+                {
+                    return post;
+                }
+            }
+
+            return null;
+        }
+
         public BlogPost DeleteBlogPost(Person person, string title)
         {
             person.Validate();

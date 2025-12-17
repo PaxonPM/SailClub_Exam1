@@ -104,12 +104,21 @@ public static class Initialize
         Event e2 = new Event("Nytårsaften", "31/12", "21:00", 100, "Nytårsaften i klubben");
         Event e3 = new Event("Bowling aften", "10/02", "20:00", 150, "Bowling aften i klubben");
         Event e4 = new Event("Bingo aften", "14/02", "18:00", 50, "Bingo aften i klubben");
+        Event e5 = new Event("", "14/02", "18:00", 50, "Bingo aften i klubben");
 
         Console.WriteLine("Done creating event objects.\nNow Adding Event objects to eventplanner");
         planner.CreateEvent(e1);
         planner.CreateEvent(e2);
         planner.CreateEvent(e3);
         planner.CreateEvent(e4);
+        try
+        {
+            planner.CreateEvent(e5); // error catch
+        }
+        catch (ArgumentException ex)
+        {
+            Console.WriteLine($"Error: {ex.Message}");
+        }
 
         Console.WriteLine("Adding participants to events...");
         e1.AddParticipant(members[3]);
@@ -136,11 +145,22 @@ public static class Initialize
         Booking b1 = new Booking("01/03", "05/03", memberRegisterObj.ReadMember(3), BoatReg.ReadBoat(1));
         Booking b2 = new Booking("10/04", "12/04", memberRegisterObj.ReadMember(4), BoatReg.ReadBoat(2));
         Booking b3 = new Booking("20/05", "22/05", memberRegisterObj.ReadMember(5), BoatReg.ReadBoat(3));
+        Booking b4 = new Booking("", "22/05", memberRegisterObj.ReadMember(5), BoatReg.ReadBoat(3)); // error catch
 
         Console.WriteLine("Adding booking objects to booking register");
         bookingOverview.CreateBooking(b1);
         bookingOverview.CreateBooking(b2);
         bookingOverview.CreateBooking(b3);
+        try
+        {
+            bookingOverview.CreateBooking(b4);
+
+        }
+        catch (Exception ex)
+        {
+
+            Console.WriteLine($"Error: {ex.Message}");
+        }
 
         Console.WriteLine("Updating and deleting bookings in booking register");
         bookingOverview.UpdateDato(b1, "02/03", "06/03");
@@ -173,7 +193,13 @@ public static class Initialize
         {
             TryAddBlog(blogRegister, bp, members[7]); // Admin user creating blog posts
         }
-        Console.WriteLine("Done adding blog posts to register.\nNow Deleting a blog post from blog post register");
+        Console.WriteLine("Done adding blog posts to register.\nNow reading a blog post from blog post register");
+        BlogPost readPost = blogRegister.ReadBlogPost("Sommerfest 2024");
+        if (readPost != null)
+            Console.WriteLine($"Read boat:\n{readPost.ToString()}");
+        else
+            Console.WriteLine("Read post:\npost not found.");
+
         blogRegister.DeleteBlogPost(members[7], "Vinterevent");
         Console.WriteLine("Printing all blog posts in blog post register:");
         foreach (BlogPost post in BlogReg)
@@ -212,7 +238,6 @@ public static class Initialize
             Console.WriteLine($"Error(exception): {ex.Message}");
         }
     }
-
     private static void TryAddBlog(Blog blog, BlogPost bp, Person person)
     {
         string errorMsg = "Error(constraints): Blog creation failed due to validation errors.";

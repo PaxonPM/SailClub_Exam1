@@ -9,7 +9,7 @@ namespace ClassLibSailClub
         //Method
         public Event CreateEvent(Event tempEvent)
         {
-            if (tempEvent== null)
+            if (string.IsNullOrWhiteSpace(tempEvent.Name))
                 throw new ArgumentException("The input was null");
 
             EventList.Add(tempEvent);
