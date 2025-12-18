@@ -9,7 +9,7 @@ namespace ClassLibSailClub
 {
     public class BlogCollection
     {
-        List<BlogPost> BlogList { get; set; } = new List<BlogPost>();
+        public List<BlogPost> BlogList { get; set; } = new List<BlogPost>();
 
 
         // CRUD metoder for BlogPost
