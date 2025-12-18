@@ -1,10 +1,11 @@
 ﻿
 
-Opret en klasse der hedder BookingOverview
+Interface: IValidate
+ tilføje det til diverse hvor det er relevant
 
-skal ligne Calendar men laves for specifikt booking
-	metoder i calendar for event skal du også have i bookingOverview for bookings så du kan oprette, slette, updatere, læse bookings.
+Ændre alle registre til at være uniforme dvs. CRUD - Create, read, update, delete
+Generel ændring af navngivelse.
+Tilføje kommentarer hele vejen igennem.
 
-
-
-
+Initialize ud af klassebibliotek
+Tilføj formatering og visning af diverse program funktionaliteter.

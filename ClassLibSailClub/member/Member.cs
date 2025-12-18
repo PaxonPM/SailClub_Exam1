@@ -1,19 +1,23 @@
-﻿using System.Security.Cryptography;
+﻿using System.Data;
+using System.Security.Cryptography;
 
 namespace ClassLibSailClub
 {
     public class Member : Person
     {
-        public DateTime SignUpDate { get; private set; }
+        public DateTime MemberSince { get; private set; }
 
         public Member(int id, string name, string address, string mail, string phone)
             : base(id, name, address, mail, phone)
         {
-            SignUpDate = DateTime.Now;
+            MemberSince = DateTime.Now;
+            IsAdmin = false;
+            Role = "Member";
+
         }
         public override string ToString()
         {
-            return $"ID: {Id}, Name: {Name}, Address: {Address}, Mail: {Mail}, Phone: {Phone}, Sign up date: {SignUpDate}";
+            return $"{base.ToString()}, Member SignUp: {MemberSince}";
         }
 
 
