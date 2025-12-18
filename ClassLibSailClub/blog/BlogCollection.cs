@@ -7,12 +7,12 @@ using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace ClassLibSailClub
 {
-    public class Blog
+    public class BlogCollection
     {
         List<BlogPost> BlogList { get; set; } = new List<BlogPost>();
 
 
-
+        // CRUD metoder for BlogPost
         public BlogPost CreateBlogPost(Person person, BlogPost post)
         {
             person.Validate();

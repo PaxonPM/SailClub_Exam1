@@ -179,7 +179,7 @@ public static class Initialize
 
         Console.WriteLine("\n\n-------------------------------------------------------\nBLOG POST SHOWCASE");
         Console.WriteLine("Creating blog post register and blog post objects");
-        Blog blogRegister = new Blog();
+        BlogCollection blogRegister = new BlogCollection();
         BlogPost[] BlogReg = new BlogPost[5];
 
         BlogReg[0] = new BlogPost("Velkommen til SailClub", "Dette er den første blogpost på SailClub!");
@@ -238,7 +238,7 @@ public static class Initialize
             Console.WriteLine($"Error(exception): {ex.Message}");
         }
     }
-    private static void TryAddBlog(Blog blog, BlogPost bp, Person person)
+    private static void TryAddBlog(BlogCollection blog, BlogPost bp, Person person)
     {
         string errorMsg = "Error(constraints): Blog creation failed due to validation errors.";
         string successMsg = "Blog creation succeeded for " + bp.Title;
